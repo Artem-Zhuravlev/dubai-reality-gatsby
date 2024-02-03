@@ -23,7 +23,7 @@
     text-transform: uppercase;
     cursor: pointer;
     line-height: 1.1;
-    border-bottom: 2px solid transparent;
+    border-bottom: var(--interface-size) solid transparent;
     transition: color var(--transition), border-color var(--transition);
 
     [open] & {

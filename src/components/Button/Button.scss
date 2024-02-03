@@ -7,7 +7,7 @@
   padding: 12px;
   cursor: pointer;
   transition: background-color var(--transition );
-  outline-offset: 2px;
+  outline-offset: var(--interface-size);
 
   &:hover,
   &:focus    {
