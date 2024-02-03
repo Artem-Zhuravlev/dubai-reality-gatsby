@@ -1,11 +1,17 @@
 :root {
   --color-primary: #FCD54C;
+  --color-primary-hover: #ffc800;
   --color-bg-main: #272727;
   --color-text-main: #929292;
+  --color-text-inverted: #fff;
+  --color-border: #979797;
 
   // text
   --text-bold: 'Montserrat', sans-serif;
   --text-main: 'Work Sans', sans-serif;
   --font-size-main: 1.6rem;
+  --font-size-small: 1.4rem;
   --line-height-main: 1.625;
+
+  --transition: .3s ease;
 }

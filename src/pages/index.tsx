@@ -2,10 +2,12 @@ import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
 import '../styles/main.scss';
 import { Button } from "../components/Button/Button";
+import { Header } from "../entities/Header/Header";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <div>
+      <Header />
       <Button>
         Click
       </Button>

@@ -1,0 +1,123 @@
+@import '../../../../styles/include-media-or';
+@import '../../../../styles/helpers';
+
+.header-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+
+  &__phone {
+    color: var(--color-text-inverted);
+    text-decoration: none;
+    transition: color var(--transition);
+    font-family: var(--text-bold);
+    font-weight: 600;
+
+    @include media('<tablet') {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      min-width: 40px;
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--color-primary);
+    }
+
+    &-value {
+      @include media('<tablet') {
+        font-size: 0;
+        visibility: hidden;
+        overflow: hidden;
+      }
+    }
+    &-icon {
+      display: none;
+      @include media('<tablet') {
+        display: inline;
+      }
+    }
+  }
+
+  &__booking {
+    @include media('<tablet') {
+      padding: 0;
+      min-width: 40px;
+      min-height: 40px;
+    }
+    &-value {
+      @include media('<tablet') {
+        font-size: 0;
+        visibility: hidden;
+        overflow: hidden;
+      }
+    }
+    &-icon {
+      display: none;
+      @include media('<tablet') {
+        display: inline;
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  &__burger {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    width: 24px;
+    height: 24px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    cursor: pointer;
+
+    @include media('<desktop') {
+      display: flex;
+    }
+
+    &::before,
+    &::after,
+    span {
+      display: block;
+      width: 16px;
+      height: 2px;
+      border-radius: 2px;
+      background-color: var(--color-text-inverted);
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      transform-origin: 50%;
+      transition: transform var(--transition);
+    }
+
+    &::before {
+      transform: translateY(-5px);
+    }
+
+    &::after {
+      transform: translateY(5px);
+    }
+
+    &--active {
+      span {
+        opacity: 0;
+      }
+
+      &::before {
+        transform: translateX(0) rotate(45deg);
+      }
+
+      &::after {
+        transform: translateX(0) rotate(-45deg);
+      }
+    }
+  }
+}

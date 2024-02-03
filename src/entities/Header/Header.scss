@@ -1,0 +1,33 @@
+@import '../../styles/include-media-or';
+@import '../../styles/helpers';
+
+.header {
+  display: grid;
+  grid-template-columns: 17.7% 2fr 400px;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 25px;
+  gap: 15px;
+
+  @include media('<desktop') {
+    position: relative;
+    grid-template-columns: 150px 1fr;
+  }
+
+  &-logo {
+    display: flex;
+    align-items: center;
+    &__link {
+      display: inline-flex;
+      max-width: 170px;
+
+      @include media('<widescreen') {
+        max-width: 150px;
+      }
+
+      @include media('<tablet') {
+        max-width: 120px;
+      }
+    }
+  }
+}

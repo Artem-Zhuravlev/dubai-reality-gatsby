@@ -1,0 +1,87 @@
+@import '../../../../styles/include-media-or';
+@import '../../../../styles/helpers';
+
+.header-nav {
+  font-family: var(--text-bold);
+  font-weight: 600;
+
+  @include media('<desktop') {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    background-color: var(--color-bg-main);
+    height: calc(80dvh - 106px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 0;
+    overflow-y: auto;
+    transition: max-height 0.5s ease;
+    
+    .dropdown {
+      &__list {
+        position: static;
+        border: none;
+        margin-top: 15px;
+      }
+
+      &__title {
+        font-size: 3.6rem;
+        margin: 0 auto;
+        &:focus {
+          border-color: transparent;
+        }
+      }
+
+      &:hover {
+        .dropdown__title {
+          border-color: transparent;
+        }
+      }
+    }
+  }
+  
+
+  &--active {
+    @include media('<desktop') {
+      max-height: calc(100dvh - 80px);
+      overflow: auto;
+    }
+  }
+
+  &__list {
+    @extend %listreset;
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-small);
+    text-transform: uppercase;
+    gap: 35px;
+
+    @include media('<widescreen') {
+      gap: 20px;
+    }
+
+    @include media('<desktop') {
+      flex-direction: column;
+      font-size: 3.6rem;
+      align-items: flex-start;
+    }
+  }
+
+  &__link {
+    color: var(--color-text-inverted);
+    text-decoration: none;
+    transition: color var(--transition), border-color var(--transition);
+    border-bottom: 2px solid transparent;
+
+    &:hover,
+    &:focus {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+
+    &:focus {
+      outline-color: transparent;
+    }
+  }
+}
