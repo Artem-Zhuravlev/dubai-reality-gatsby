@@ -4,6 +4,7 @@
 @import 'variables';
 @import 'typography';
 @import 'icomoon';
+@import 'components/list';
 
 *,
 *::before,
@@ -35,3 +36,4 @@ body {
     padding: 0 16px;
   }
 }
+

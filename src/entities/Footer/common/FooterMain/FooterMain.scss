@@ -1,0 +1,14 @@
+.footer-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 50px 30px;
+  border-bottom: var(--interface-size-small) solid var(--color-text-main);
+  padding-bottom: 57px;
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 103px;
+  }
+}

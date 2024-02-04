@@ -1,0 +1,28 @@
+@import '../../styles/helpers';
+
+.social-list {
+  @extend %listreset;
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  gap: 24px;
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &.column {
+    flex-direction: column;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: var(--color-title);
+    transition: color var(--transition);
+
+    &:hover,
+    &:focus {
+      color: var(--color-primary);
+    }
+  }
+}

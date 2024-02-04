@@ -1,0 +1,9 @@
+.footer-top {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 42px;
+
+  &__logo {
+    max-width: 170px;
+  }
+}

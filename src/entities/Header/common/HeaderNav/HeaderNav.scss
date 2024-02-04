@@ -10,13 +10,14 @@
     top: 100%;
     width: 100%;
     background-color: var(--color-bg-main);
-    height: calc(80dvh - 106px);
+    height: calc(100dvh - 106px);
     display: flex;
     align-items: center;
     justify-content: center;
     max-height: 0;
     overflow-y: auto;
     transition: max-height 0.5s ease;
+    z-index: 1;
     
     .dropdown {
       &__list {

@@ -1,0 +1,36 @@
+.list {
+  @extend %listreset;
+
+  &-title {
+    margin-bottom: 28px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-title);
+  }
+  &-group {
+
+  }
+
+  &__item {
+    color: var(--color-title);
+    &:not(:last-of-type) {
+      margin-bottom: 11px;
+    }
+
+    address {
+      font-style: normal;
+    }
+  }
+
+  &__link {
+    color: var(--color-title);
+    text-decoration: none;
+    transition: color var(--transition);
+
+    &:hover,
+    &:focus {
+      color: var(--color-primary);
+    }
+  }
+}
+
