@@ -1,8 +1,10 @@
 import React, { memo, useState } from 'react';
 import './Header.scss';
-import { HeaderLogo } from './common/HeaderLogo';
-import { HeaderNav } from './common/HeaderNav';
-import { HeaderControls } from './common/HeaderControls';
+import {
+  HeaderLogo,
+  HeaderNav,
+  HeaderControls
+} from './common';
 
 interface HeaderProps {
   className?: string
