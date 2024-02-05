@@ -1,0 +1,172 @@
+@import '../../../../styles/include-media-or';
+@import '../../../../styles/helpers';
+
+.banner-slide {
+  position: relative;
+  min-height: calc(100dvh - 105px);
+  display: flex!important;
+  align-items: center;
+
+  @include media('<phone') {
+    min-height: calc(80dvh - 105px);
+    align-items: flex-start;
+    padding-top: 20%;
+  }
+
+  @include media('<desktop', 'landscape') {
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+  }
+
+  &__description {
+    padding: 20px 0 20px 20px;
+    position: relative;
+    z-index: 2;
+    color: var(--color-text-inverted);
+    border-left: var(--interface-size) solid var(--color-primary);
+
+    @include media('<widescreen') {
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+
+    @include media('<tablet') {
+      margin-right: 16px;
+      margin-left: 16px;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: var(--interface-size);
+      width: 124px;
+      background-color: var(--color-primary);
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+  }
+
+  &__category {
+    display: inline-block;
+    font-size: var(--font-size-main);
+    .banner-slide--active & {
+      animation: moveLeft 1.3s ease-in-out;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 8rem;
+    font-family: var(--text-bold);
+    line-height: 1;
+    @include media('<widescreen', 'landscape') {
+      font-size: 6rem;
+    } 
+
+    @include media('<desktop') {
+      font-size: 6rem;
+    }
+
+    @include media('<desktop', 'landscape') {
+      font-size: 3rem;
+    } 
+
+    @include media('<tablet') {
+      font-size: 4rem;
+    }
+
+    @include media('<tablet', 'landscape') {
+      font-size: 3rem;
+    }
+
+    @include media('<phone') {
+      font-size: 3rem;
+    }
+
+    .banner-slide--active & {
+      animation: moveLeft 1.5s ease-in-out;
+    }
+
+    mark {
+      color: var(--color-primary);
+      background-color: transparent;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition);
+    .banner-slide--active & {
+      animation: moveLeft 1.8s ease-in-out;
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      transform-origin: 50%;
+      border-top: var(--interface-size-small) solid var(--color-text-inverted);
+      border-right: var(--interface-size-small) solid var(--color-text-inverted);
+      width: 10px;
+      height: 10px;
+      transform: rotate(45deg);
+      transition: border-color var(--transition);
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--color-primary);
+      &::after {
+        border-color: var(--color-primary);
+      }
+    }
+  }
+}
+
+@keyframes moveLeft {
+  from {
+    opacity: 0;
+    transform: translateX(140px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

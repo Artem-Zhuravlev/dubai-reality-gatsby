@@ -1,0 +1,42 @@
+@import '../../styles/include-media-or';
+@import '../../styles/helpers';
+
+.banner {
+  position: relative;
+
+   &__controls {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: calc(100vw - (571px / 2));
+    width: 100%;
+    min-height: 134px;
+
+    @include media('<widescreen') {
+      max-width: 100%;
+      grid-template-columns: 1fr;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    @include media('<widescreen', 'landscape') {
+      min-height: 110px;
+    }
+
+    @include media('<notebook', 'landscape') {
+      max-width: 100%;
+    }
+
+    @include media('<desktop', 'landscape') {
+      position: static;
+      margin-top: -48px;
+    }
+
+    @include media('<phone') {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+}

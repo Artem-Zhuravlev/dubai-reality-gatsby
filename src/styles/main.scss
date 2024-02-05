@@ -6,6 +6,9 @@
 @import 'icomoon';
 @import 'components/list';
 
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
 *,
 *::before,
 *::after {
@@ -26,6 +29,7 @@ body {
   font: var(--font-size-main) / var(--line-height-main) var(--text-main);
   background-color: var(--color-bg-main);
   color: var(--color-text-main);
+  overflow-x: hidden;
 }
 
 .container-fluid {
@@ -48,4 +52,10 @@ body {
 .main {
   flex: 1 1;
   height: 100%;
+}
+
+.container {
+  max-width: 1142px;
+  padding: 0 16px;
+  margin: 0 auto;
 }

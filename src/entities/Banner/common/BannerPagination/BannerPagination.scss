@@ -1,0 +1,60 @@
+@import '../../../../styles/helpers';
+@import '../../../../styles/include-media-or';
+
+.banner-pagination {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: var(--color-bg-main);
+  counter-reset: section;
+  color: var(--color-text-inverted);
+
+  @extend %listreset;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 30px;
+
+    @include media('<widescreen') {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    @include media('<tablet') {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    @include media('<phone') {
+      font-size: 1rem;
+      padding-left: 16px;
+    }
+
+    &::before {
+      counter-increment: section;
+      content: "0" counter(section);
+      font-family: var(--text-bold);
+      font-weight: 700;
+      font-size: 6rem;
+      display: inline-block;
+      line-height: 1;
+      transition: color var(--transition);
+
+      @include media('<desktop') {
+        font-size: 4rem;
+      }
+
+      @include media('<tablet', 'landscape') {
+        font-size: 2rem;
+      }
+    }
+
+    &--active {
+      &::before {
+        color: var(--color-primary);
+      }
+    }
+  }
+}
