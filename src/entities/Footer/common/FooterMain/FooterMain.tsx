@@ -5,8 +5,6 @@ import { List } from '../../../../components/List/List';
 import { Button } from '../../../../components/Button/Button';
 
 export const FooterMain = memo(() => {
-  
-
   return (
     <div className='footer-main container-fluid'>
       {

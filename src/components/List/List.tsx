@@ -12,7 +12,6 @@ interface ListProps {
 }
 
 export const List = memo(({ title, items }: ListProps) => {
-
   return (
     <div className="list-group">
       {

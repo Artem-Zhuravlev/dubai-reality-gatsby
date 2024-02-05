@@ -7,7 +7,6 @@ import {
 } from './common';
 
 export const Footer = memo(() => {
-
   return (
     <footer className='footer'>
       <FooterTop />

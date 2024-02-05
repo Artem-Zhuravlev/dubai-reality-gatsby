@@ -6,12 +6,7 @@ import {
   HeaderControls
 } from './common';
 
-interface HeaderProps {
-  className?: string
-}
-
-export const Header = memo((props: HeaderProps) => {
-  const { className } = props;
+export const Header = memo(() => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const onBurgerClick = (value: boolean): void => {

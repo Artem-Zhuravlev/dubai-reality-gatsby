@@ -3,13 +3,7 @@ import './FooterTop.scss';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
-interface FooterTopProps {
-  className?: string
-}
-
-export const FooterTop = memo((props: FooterTopProps) => {
-  const { className } = props;
-
+export const FooterTop = memo(() => {
   return (
     <div className='footer-top container-fluid'>
       <Link
