@@ -8,10 +8,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
 p {
   margin: 0 0 1em;
+  line-height: 1.8;
 }
 
 h1, .h1 {
-  font-size: 7rem;
+  font-size: 6rem;
+  @include media('<=tablet') {
+    font-size: 3rem;
+  }
 }
 
 h2, .h2 {

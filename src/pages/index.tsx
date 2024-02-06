@@ -3,14 +3,15 @@ import type { HeadFC, PageProps } from "gatsby"
 import '../styles/main.scss';
 import { MainLayout } from "../layouts/MainLayout/MainLayout";
 import { Banner } from "../entities/Banner/Banner";
-import { HiddenInfoCard } from "../components/HiddenInfoCard/HiddenInfoCard";
 import { CarouselSection } from "../entities/CarouselSection/CarouselSection";
+import { InfoSection } from "../entities/InfoSection/InfoSection";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <MainLayout>
       <Banner />
       <CarouselSection />
+      <InfoSection />
     </MainLayout>
   )
 }
