@@ -1,0 +1,58 @@
+@import '../../styles/include-media-or';
+@import '../../styles/helpers';
+
+
+.carousel-section {
+  margin-bottom: 80px;
+
+  &__title {
+    margin-bottom: 65px;
+    @include media('<desktop') {
+      margin-bottom: 30px;
+    }
+  }
+
+  .slick-track {
+    display: flex;
+    gap: 28px;
+    @include media('<phone') {
+      gap: 16px;
+    }
+  }
+
+  .slick-list {
+    margin-left: -14px;
+    margin-right: -14px;
+    @include media('<phone') {
+      margin-left: -8px;
+      margin-right: -8px;
+    }
+  }
+
+  .slick-dots {
+    position: static;
+    margin-top: 40px;
+    @include media('<desktop') {
+      margin-top: 15px;
+    }
+
+    li {
+      button {
+        width: 13px;
+        height: 13px;
+        background-color: var(--color-border);
+        border-radius: 50%;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      &.slick-active {
+        button {
+          background-color: var(--color-primary);
+        }
+      }
+    }
+  }
+}
