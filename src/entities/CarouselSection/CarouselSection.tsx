@@ -49,7 +49,7 @@ export const CarouselSection = memo(() => {
   ]
 
   return (
-    <section className="carousel-section container-fluid">
+    <section className="carousel-section container-fluid section">
       <div className="container">
         <h2
           className="h2 carousel-section__title"

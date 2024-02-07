@@ -5,6 +5,7 @@ import { MainLayout } from "../layouts/MainLayout/MainLayout";
 import { Banner } from "../entities/Banner/Banner";
 import { CarouselSection } from "../entities/CarouselSection/CarouselSection";
 import { InfoSection } from "../entities/InfoSection/InfoSection";
+import { VideoSection } from "../entities/VideoSection/VideoSection";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -12,6 +13,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <Banner />
       <CarouselSection />
       <InfoSection />
+      <VideoSection />
     </MainLayout>
   )
 }

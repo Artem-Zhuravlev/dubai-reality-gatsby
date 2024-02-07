@@ -9,7 +9,7 @@ export const InfoSection = memo((props: InfoSectionProps) => {
   const { className } = props;
 
   return (
-    <section className="info-section">
+    <section className="info-section section">
       <div className="container-small">
         <strong
           className="info-section__heading"
