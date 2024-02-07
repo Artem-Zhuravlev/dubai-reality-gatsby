@@ -33,12 +33,19 @@ export const Input = memo((props: InputProps) => {
         >
           <input
             {...input}
-            className='input'
+            className={classNames(
+              'input',
+              { 'input--error': (meta.error || meta.submitError) && meta.touched }
+            )}
             name={name}
             type={type}
             placeholder={placeholder}
           />
-          {meta.error && meta.touched && <span>{meta.error}</span>}
+          {(meta.error || meta.submitError) && meta.touched && (
+            <span className="input__error-message">
+              {meta.error || meta.submitError}
+            </span>
+          )}
         </div>
       )}
     </Field>

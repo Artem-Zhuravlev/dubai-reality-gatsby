@@ -1,0 +1,46 @@
+@import '../../styles/include-media-or';
+@import '../../styles/helpers';
+
+.contact-us {
+  padding-top: 88px;
+  padding-bottom: 93px;
+  text-align: center;
+  background: url('../../static/contact-bg.jpg')no-repeat center;
+  background-size: cover;
+  color: var(--color-bg-main);
+
+  @include media('<desktop') {
+    padding-top: 40px;
+    padding-bottom: 50px;
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    max-width: 472px;
+    margin: 0 auto;
+  }
+
+  &__question {
+    font-size: 1.8rem;
+
+    @include media('<desktop') {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__title {
+    margin-bottom: 45px;
+    color: var(--color-bg-main);
+    font-size: 12rem;
+    line-height: 0.8;
+
+    @include media('<desktop') {
+      font-size: 7rem;
+    }
+
+    @include media('<phone') {
+      font-size: 5rem;
+    }
+  }
+}

@@ -8,7 +8,10 @@ interface ButtonProps {
   className?: string;
   children: ReactNode;
   buttonType?: ButtonType;
-  size?: 'large'
+  size?: 'large';
+  mode?: 'dark' | 'light';
+  onClick?: () => void;
+  disabled?: boolean;
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -16,19 +19,25 @@ export const Button = memo((props: ButtonProps) => {
     className,
     children,
     buttonType = 'button',
-    size
+    size,
+    mode = 'light',
+    disabled,
+    onClick
   } = props;
 
   const btnClasses = classNames(
     'btn',
     className,
-    size
+    size,
+    mode
   );
 
   return (
     <button
       className={btnClasses}
       type={buttonType}
+      onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>
