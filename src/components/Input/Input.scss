@@ -1,0 +1,10 @@
+.input {
+  min-height: 40px;
+  min-height: 50px;
+  border: var(--interface-size-small) solid var(--color-text-inverted);
+  padding-left: 20px;
+  font-family: var(--text-main);
+  font-size: var(--font-size-main);
+  outline-offset: calc(var(--interface-size) * -1);
+  outline-width: var(--interface-size);
+}

@@ -7,19 +7,22 @@ type ButtonType = 'button' | 'reset' | 'submit';
 interface ButtonProps {
   className?: string;
   children: ReactNode;
-  buttonType?: ButtonType
+  buttonType?: ButtonType;
+  size?: 'large'
 }
 
 export const Button = memo((props: ButtonProps) => {
   const {
     className,
     children,
-    buttonType = 'button'
+    buttonType = 'button',
+    size
   } = props;
 
   const btnClasses = classNames(
     'btn',
-    className
+    className,
+    size
   );
 
   return (

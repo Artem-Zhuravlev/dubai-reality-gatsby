@@ -13,4 +13,11 @@
   &:focus    {
     background-color: var(--color-primary-hover);
   }
+
+  &.large {
+    min-height: 50px;
+    padding-left: 17px;
+    padding-right: 17px;
+    font-size: var(--font-size-main);
+  }
 }

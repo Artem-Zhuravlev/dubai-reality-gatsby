@@ -2,7 +2,7 @@
 @import '../../styles/helpers';
 
 .content-section {
-  &__blockquote {
+  .content-section__blockquote {
     margin-bottom: 64px;
     @include media('<desktop') {
       margin-bottom: 50px;

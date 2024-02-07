@@ -1,0 +1,46 @@
+import React, { memo } from 'react';
+import { Field } from 'react-final-form';
+import './Input.scss';
+import classNames from 'classnames';
+
+interface InputProps {
+  className?: string;
+  type?: 'text' | 'email';
+  name: string;
+  placeholder: string;
+}
+
+export const Input = memo((props: InputProps) => {
+  const {
+    className,
+    type = 'text',
+    name,
+    placeholder
+  } = props;
+
+  const wrapperClass = classNames(
+    'input-wrapper',
+    className
+  );
+
+  return (
+    <Field
+      name={name}
+    >
+       {({ input, meta }) => (
+        <div
+          className={wrapperClass}
+        >
+          <input
+            {...input}
+            className='input'
+            name={name}
+            type={type}
+            placeholder={placeholder}
+          />
+          {meta.error && meta.touched && <span>{meta.error}</span>}
+        </div>
+      )}
+    </Field>
+  );
+});
