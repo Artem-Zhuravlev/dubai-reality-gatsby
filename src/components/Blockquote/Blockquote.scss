@@ -1,0 +1,30 @@
+@import '../../styles/include-media-or';
+@import '../../styles/helpers';
+
+.blockquote {
+  padding: 64px 82px 64px 95px;
+  margin: 0;
+  border: var(--interface-size-small) solid var(--color-primary);
+  color: var(--color-text-inverted);
+  font-size: 3rem;
+  @include media('<desktop') {
+    padding: 35px 60px;
+    font-size: 1.8rem;
+  }
+
+  @include media('<phone') {
+    padding: 20px 25px;
+    font-size: 1.6rem;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  &__author {
+    position: relative;
+    font-style: normal;
+    color: var(--color-primary);
+    margin-left: 5px;
+  }
+}

@@ -55,15 +55,23 @@ body {
 }
 
 .container {
-  max-width: 1142px;
-  padding: 0 16px;
+  max-width: 1190px;
+  padding: 0 40px;
   margin: 0 auto;
+
+  @media (max-width: 576px) {
+    padding: 0 16px;
+  }
 }
 
 .container-small {
-  max-width: 762px;
-  padding: 0 16px;
+  max-width: 810px;
+  padding: 0 40px;
   margin: 0 auto;
+
+  @media (max-width: 576px) {
+    padding: 0 16px;
+  }
 }
 
 .section {
