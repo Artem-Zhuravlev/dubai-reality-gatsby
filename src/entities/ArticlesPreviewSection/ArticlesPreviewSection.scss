@@ -1,7 +1,12 @@
-@import '../../styles/include-media-or';
 @import '../../styles/helpers';
 
 .articles-preview {
+  margin-bottom: 226px;
+
+  @include media('<widescreen') {
+    margin-bottom: 170px;
+  }
+
   &__header {
     display: flex;
     align-items: center;

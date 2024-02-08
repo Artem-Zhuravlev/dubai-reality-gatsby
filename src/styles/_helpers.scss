@@ -1,9 +1,50 @@
+@import './include-media-or';
+
 %listreset {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+
+%slickdots {
+  .slick-dots {
+    position: static;
+    margin-top: 40px;
+    @include media('<desktop') {
+      margin-top: 15px;
+    }
+
+    li {
+      button {
+        width: 13px;
+        height: 13px;
+        background-color: var(--color-border);
+        border-radius: 50%;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      &.slick-active {
+        button {
+          background-color: var(--color-primary);
+        }
+      }
+    }
+  }
+}
+
+%slicktrack {
+  .slick-track {
+    display: flex;
+    gap: 28px;
+    @include media('<phone') {
+      gap: 16px;
+    }
+  }
+}
 
 // Breakpoints for include media mixin
 $breakpoints: (

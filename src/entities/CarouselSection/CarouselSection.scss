@@ -1,4 +1,3 @@
-@import '../../styles/include-media-or';
 @import '../../styles/helpers';
 
 .carousel-section {
@@ -9,13 +8,7 @@
     }
   }
 
-  .slick-track {
-    display: flex;
-    gap: 28px;
-    @include media('<phone') {
-      gap: 16px;
-    }
-  }
+  @extend %slicktrack;
 
   .slick-list {
     margin-left: -14px;
@@ -26,30 +19,5 @@
     }
   }
 
-  .slick-dots {
-    position: static;
-    margin-top: 40px;
-    @include media('<desktop') {
-      margin-top: 15px;
-    }
-
-    li {
-      button {
-        width: 13px;
-        height: 13px;
-        background-color: var(--color-border);
-        border-radius: 50%;
-
-        &::before {
-          display: none;
-        }
-      }
-
-      &.slick-active {
-        button {
-          background-color: var(--color-primary);
-        }
-      }
-    }
-  }
+  @extend %slickdots;
 }

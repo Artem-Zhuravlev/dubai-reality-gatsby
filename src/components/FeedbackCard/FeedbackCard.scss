@@ -2,6 +2,7 @@
   position: relative;
   border: var(--interface-size-small) solid var(--color-primary);
   padding: 100px 35px 12px 30px;
+  max-width: 525px;
 
   &::after {
     position: absolute;

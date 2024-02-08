@@ -8,9 +8,8 @@ import { InfoSection } from "../entities/InfoSection/InfoSection";
 import { VideoSection } from "../entities/VideoSection/VideoSection";
 import { ContentSection } from "../entities/ContentSection/ContentSection";
 import { ContactUsSection } from "../entities/ContactUsSection/ContactUsSection";
-import { HiddenInfoCard } from "../components/HiddenInfoCard/HiddenInfoCard";
 import { ArticlesPreviewSection } from "../entities/ArticlesPreviewSection/ArticlesPreviewSection";
-import { FeedbackCard } from "../components/FeedbackCard/FeedbackCard";
+import { FeedbackSection } from "../entities/FeedbackSection/FeedbackSection";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -22,13 +21,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <ContentSection />
       <ContactUsSection />
       <ArticlesPreviewSection />
-      <div className="container">
-        <FeedbackCard
-          title="Paul"
-          subtitle="Owner in Paul.com"
-          description="Projects for many large domestic and foreign corporations, enterprises in many elds such as nance, banking, F&B, education, communication."
-        />
-      </div>
+      <FeedbackSection />
     </MainLayout>
   )
 }

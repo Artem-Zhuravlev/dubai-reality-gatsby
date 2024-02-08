@@ -1,0 +1,26 @@
+@import '../../styles/helpers';
+
+.feedback-section {
+  .slick-list {
+    padding-top: 86px!important;
+    margin-top: -86px;
+  }
+
+  .slick-slide {
+    @include media('>widescreen') {
+      opacity: 0.2;
+      transition: opacity var(--transition), transform var(--transition);
+      transform: translateY(-30px);
+    }
+
+    &.slick-center {
+      @include media('>widescreen') {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  @extend %slicktrack;
+  @extend %slickdots;
+}
