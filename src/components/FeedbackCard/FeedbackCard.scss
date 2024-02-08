@@ -1,0 +1,42 @@
+.feedback-card {
+  position: relative;
+  border: var(--interface-size-small) solid var(--color-primary);
+  padding: 100px 35px 12px 30px;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 40px;
+    content: "\201E";
+    color: var(--color-primary);
+    font-size: 10rem;
+    font-family: var(--text-bold);
+    font-weight: 700;
+    line-height: 0.5;
+  }
+
+  &__user-icon {
+    position: absolute;
+    top: -56px;
+    left: 30px;
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--text-bold);
+    font-weight: 700;
+    color: var(--color-bg-main);
+    font-size: 4rem;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__subtitle {
+    margin-bottom: 30px;
+  }
+}
