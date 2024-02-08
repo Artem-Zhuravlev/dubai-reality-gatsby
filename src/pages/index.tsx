@@ -9,6 +9,7 @@ import { VideoSection } from "../entities/VideoSection/VideoSection";
 import { ContentSection } from "../entities/ContentSection/ContentSection";
 import { ContactUsSection } from "../entities/ContactUsSection/ContactUsSection";
 import { HiddenInfoCard } from "../components/HiddenInfoCard/HiddenInfoCard";
+import { ArticlesPreviewSection } from "../entities/ArticlesPreviewSection/ArticlesPreviewSection";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -19,17 +20,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <VideoSection />
       <ContentSection />
       <ContactUsSection />
-      <div className="container">
-        <HiddenInfoCard
-          to="route"
-          title="Dubai"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat molestie integer aliquam consectetur. Faucibus vitae dui massa tellus magna sit."
-          linkName="See project"
-          small
-          date="Jule 03, 2022"
-          dark
-        />
-      </div>
+      <ArticlesPreviewSection />
     </MainLayout>
   )
 }

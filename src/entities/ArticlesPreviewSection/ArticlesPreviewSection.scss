@@ -1,0 +1,65 @@
+@import '../../styles/include-media-or';
+@import '../../styles/helpers';
+
+.articles-preview {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 75px;
+    @include media('<phone'){
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__show-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--color-text-main);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition);
+
+    &::after {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      transform-origin: 50%;
+      border-top: var(--interface-size-small) solid var(--color-text-main);
+      border-right: var(--interface-size-small) solid var(--color-text-main);
+      width: 10px;
+      height: 10px;
+      transform: rotate(45deg);
+      transition: border-color var(--transition);
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--color-primary);
+
+      &::after {
+        border-color: var(--color-primary);
+      }
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    @include media('<desktop') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include media('<phone') {
+      grid-template-columns: 1fr;
+    }
+  }
+}
