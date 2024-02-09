@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import './BlogCard.scss';
 import { StaticImage } from 'gatsby-plugin-image';
 
-interface BlogCardProps {
+export interface BlogCardProps {
   to: string;
   description: string;
   title: string;
