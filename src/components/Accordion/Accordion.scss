@@ -1,0 +1,67 @@
+@import '../../styles/helpers';
+
+.accordion {
+  border-top: var(--interface-size-small) solid var(--color-text-main);
+  &-item {
+    color: var(--color-text-inverted);
+    border-bottom: var(--interface-size-small) solid var(--color-text-main);
+    
+
+    &--active {
+      .accordion-item__title {
+        &::after {
+          transform: rotate(135deg);
+        }
+      }
+    }
+
+    &__title {
+      position: relative;
+      font-size: 1.8rem;
+      padding: 16px 50px 16px 0;
+      width: 100%;
+      text-align: left;
+      border: none;
+      background-color: transparent;
+      color: var(--color-text-inverted);
+      cursor: pointer;
+      transition: color var(--transition);
+
+      &:focus {
+        outline-color: transparent;
+        color: var(--color-primary);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 20px;
+        margin: auto;
+        width: 15px;
+        height: 15px;
+        border-top: var(--interface-size-small) solid var(--color-primary);
+        border-right: var(--interface-size-small) solid var(--color-primary);
+        transform-origin: 50%;
+        transform: rotate(45deg);
+        transition: transform var(--transition);
+      }
+    }
+
+    &__content {
+      font-size: var(--font-size-small);
+      color: var(--color-title);
+      padding: 15px 80px 40px 64px;
+
+      @include media('<desktop') {
+        padding-left: 40px;
+      }
+
+      @include media('<phone') {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  }
+}

@@ -10,6 +10,7 @@ import { ContentSection } from "../entities/ContentSection/ContentSection";
 import { ContactUsSection } from "../entities/ContactUsSection/ContactUsSection";
 import { ArticlesPreviewSection } from "../entities/ArticlesPreviewSection/ArticlesPreviewSection";
 import { FeedbackSection } from "../entities/FeedbackSection/FeedbackSection";
+import { FaqSection } from "../entities/FaqSection/FaqSection";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -22,6 +23,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <ContactUsSection />
       <ArticlesPreviewSection />
       <FeedbackSection />
+      <FaqSection />
     </MainLayout>
   )
 }
