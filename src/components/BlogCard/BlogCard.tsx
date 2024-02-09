@@ -7,7 +7,7 @@ export interface BlogCardProps {
   to: string;
   description: string;
   title: string;
-  category: string;
+  category?: string;
 }
 
 export const BlogCard = memo((props: BlogCardProps) => {
@@ -30,11 +30,14 @@ export const BlogCard = memo((props: BlogCardProps) => {
         />
       </div>
       <div className="blog-card__description">
-        <header
-          className="blog-card__category"
-        >
-          {category}
-        </header>
+        {category && (
+          <header
+            className="blog-card__category"
+          >
+            {category}
+          </header>
+        )}
+        
         <h4 className="blog-card__title">
           {title}
         </h4>

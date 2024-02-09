@@ -1,10 +1,13 @@
-import React, { memo } from 'react';
+import React, { memo, useId } from 'react';
 import { BlogCard, BlogCardProps } from '../../components/BlogCard/BlogCard';
 import './ArticlesSection.scss';
 import { InputSearch } from '../../components/InputSearch/InputSearch';
 
+export interface ArticleItem extends Omit<BlogCardProps, 'to'> {
+  slug: string;
+}
 interface ArticlesSectionProps {
-  items?: (Pick<BlogCardProps, Exclude<keyof BlogCardProps, 'to'>> & { slug: string })[];
+  items?: ArticleItem[];
   onSearch: (value: string) => void;
 }
 
@@ -13,6 +16,7 @@ export const ArticlesSection = memo((props: ArticlesSectionProps) => {
     items,
     onSearch
   } = props;
+  const id = useId();
 
   const handleSearch = (value: string) => {
     onSearch(value);
@@ -34,6 +38,7 @@ export const ArticlesSection = memo((props: ArticlesSectionProps) => {
         {
           items ? items.map((item, index) => (
             <BlogCard
+              key={`${id}_${index}`}
               title={item.title}
               to={item.slug}
               category={item.category}

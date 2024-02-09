@@ -1,0 +1,22 @@
+.articles-section {
+  padding-top: 66px;
+  &__header {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    align-items: center;
+    margin-bottom: 65px;
+    gap: 20px;
+  }
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1190px;
+    margin: auto;
+    gap: 30px;
+  }
+}
