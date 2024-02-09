@@ -1,0 +1,17 @@
+.input-search {
+  input[type="text"] {
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 50px;
+    background-color: transparent;
+    border: var(--interface-size-small) solid var(--color-border);
+    outline-color: transparent;
+    font-family: var(--text-main);
+    font-size: var(--font-size-main);
+    color: var(--color-text-inverted);
+
+    &:focus {
+      border-color: var(--color-primary);
+    }
+  }
+}

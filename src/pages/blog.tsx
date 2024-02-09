@@ -5,9 +5,15 @@ import { MainLayout } from "../layouts/MainLayout/MainLayout";
 import { ArticlesSection } from "../entities/ArticlesSection/ArticlesSection";
 
 const BlogPage: React.FC<PageProps> = () => {
+  const handleSearch = (value: string) => {
+    console.log(value, 'from upper scope')
+  }
+
   return (
     <MainLayout>
-      <ArticlesSection />
+      <ArticlesSection
+        onSearch={handleSearch}
+      />
     </MainLayout>
   )
 }

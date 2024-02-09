@@ -1,15 +1,22 @@
 import React, { memo } from 'react';
 import { BlogCard, BlogCardProps } from '../../components/BlogCard/BlogCard';
 import './ArticlesSection.scss';
+import { InputSearch } from '../../components/InputSearch/InputSearch';
 
 interface ArticlesSectionProps {
   items?: (Pick<BlogCardProps, Exclude<keyof BlogCardProps, 'to'>> & { slug: string })[];
+  onSearch: (value: string) => void;
 }
 
 export const ArticlesSection = memo((props: ArticlesSectionProps) => {
   const {
-    items
+    items,
+    onSearch
   } = props;
+
+  const handleSearch = (value: string) => {
+    onSearch(value);
+  }
 
   return (
     <section className="articles-section container-fluid">
@@ -17,6 +24,9 @@ export const ArticlesSection = memo((props: ArticlesSectionProps) => {
         className="articles-section__header"
       >
         <h1 className="articles-section__title">Blog</h1>
+        <InputSearch
+          onInput={handleSearch}
+        />
       </header>
       <div
         className="articles-section__content"
