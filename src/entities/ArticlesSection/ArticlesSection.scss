@@ -1,3 +1,5 @@
+@import '../../styles/helpers';
+
 .articles-section {
   padding-top: 66px;
   &__header {
@@ -6,6 +8,9 @@
     align-items: center;
     margin-bottom: 65px;
     gap: 20px;
+    @include media('<phone') {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__title {
@@ -18,5 +23,19 @@
     max-width: 1190px;
     margin: auto;
     gap: 30px;
+    margin-bottom: 30px;
+
+    @include media('<widescreen') {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include media('<tablet') {
+      grid-template-columns: 1fr;
+    } 
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
   }
 }

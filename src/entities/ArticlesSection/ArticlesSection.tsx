@@ -1,29 +1,56 @@
-import React, { memo, useId } from 'react';
+import React, { memo, useId, useState } from 'react';
 import { BlogCard, BlogCardProps } from '../../components/BlogCard/BlogCard';
 import './ArticlesSection.scss';
 import { InputSearch } from '../../components/InputSearch/InputSearch';
+import { Pagination } from '../../components/Pagination/Pagination';
 
-export interface ArticleItem extends Omit<BlogCardProps, 'to'> {
+interface ArticleItem extends Omit<BlogCardProps, 'to'> {
   slug: string;
 }
-interface ArticlesSectionProps {
-  items?: ArticleItem[];
-  onSearch: (value: string) => void;
-}
 
-export const ArticlesSection = memo((props: ArticlesSectionProps) => {
-  const {
-    items,
-    onSearch
-  } = props;
+export const ArticlesSection = memo(() => {
   const id = useId();
+  const [pageCount, setPageCount] = useState(0);
 
   const handleSearch = (value: string) => {
-    onSearch(value);
+    console.log(value, 'from upper scope')
   }
 
+  const items:ArticleItem[] = [
+    {
+      slug: 'some-slug',
+      title: 'Commercial property in Abu Dhabi',
+      description: 'In Dubai, the final statistics of all transactions related to real estate for the first quarter has been confirmed ...'
+    },
+    {
+      slug: 'some-slug',
+      title: 'Commercial property in Abu Dhabi',
+      description: 'In Dubai, the final statistics of all transactions related to real estate for the first quarter has been confirmed ...'
+    },
+    {
+      slug: 'some-slug',
+      title: 'Commercial property in Abu Dhabi',
+      description: 'In Dubai, the final statistics of all transactions related to real estate for the first quarter has been confirmed ...'
+    },
+    {
+      slug: 'some-slug',
+      title: 'Commercial property in Abu Dhabi',
+      description: 'In Dubai, the final statistics of all transactions related to real estate for the first quarter has been confirmed ...'
+    },
+    {
+      slug: 'some-slug',
+      title: 'Commercial property in Abu Dhabi',
+      description: 'In Dubai, the final statistics of all transactions related to real estate for the first quarter has been confirmed ...'
+    },
+    {
+      slug: 'some-slug',
+      title: 'Commercial property in Abu Dhabi',
+      description: 'In Dubai, the final statistics of all transactions related to real estate for the first quarter has been confirmed ...'
+    }
+  ]
+
   return (
-    <section className="articles-section container-fluid">
+    <section className="articles-section container-fluid section">
       <header
         className="articles-section__header"
       >
@@ -49,6 +76,11 @@ export const ArticlesSection = memo((props: ArticlesSectionProps) => {
           )
         }
       </div>
+      <footer className="articles-section__footer">
+        <Pagination
+          pageCount={items.length}
+        />
+      </footer>
     </section>
   );
 });
