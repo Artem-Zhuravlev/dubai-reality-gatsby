@@ -4,6 +4,8 @@
   position: relative;
   display: flex;
   min-height: calc(100dvh - 105px);
+  margin-bottom: 40px;
+
   @include media('<widescreen') {
     min-height: calc(50dvh - 105px);
   }
