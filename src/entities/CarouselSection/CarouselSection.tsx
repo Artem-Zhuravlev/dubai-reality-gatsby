@@ -2,7 +2,7 @@ import React, { memo, useId } from 'react';
 import './CarouselSection.scss';
 import Slider from 'react-slick';
 import { settings } from './sliderSettings';
-import { HiddenInfoCard } from 'components/HiddenInfoCard/HiddenInfoCard';
+import { HiddenInfoCard } from 'components/cards';
 
 
 interface CardItems {

@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import './FooterBottom.scss';
-import { SocialList } from 'components/SocialList/SocialList';
+import { SocialList } from 'components/lists';
 
 export const FooterBottom = memo(() => {
   return (

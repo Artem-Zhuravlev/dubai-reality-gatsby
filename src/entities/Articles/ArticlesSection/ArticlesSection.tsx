@@ -1,7 +1,7 @@
 import React, { memo, useId, useState } from 'react';
-import { BlogCard, BlogCardProps } from 'components/BlogCard/BlogCard';
+import { BlogCard, BlogCardProps } from 'components/cards';
 import './ArticlesSection.scss';
-import { InputSearch } from 'components/Form';
+import { InputSearch } from 'components/form';
 import { Pagination } from 'components/Pagination/Pagination';
 
 interface ArticleItem extends Omit<BlogCardProps, 'to'> {

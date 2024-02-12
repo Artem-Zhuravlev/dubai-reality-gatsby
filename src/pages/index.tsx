@@ -8,7 +8,7 @@ import { InfoSection } from "entities/InfoSection/InfoSection";
 import { VideoSection } from "entities/VideoSection/VideoSection";
 import { ContentSection } from "entities/ContentSection/ContentSection";
 import { ContactUsSection } from "entities/Contact";
-import { ArticlesPreviewSection } from "entities/ArticlesPreviewSection/ArticlesPreviewSection";
+import { ArticlesPreviewSection } from "entities/Articles";
 import { FeedbackSection } from "entities/FeedbackSection/FeedbackSection";
 import { FaqSection } from "entities/FaqSection/FaqSection";
 

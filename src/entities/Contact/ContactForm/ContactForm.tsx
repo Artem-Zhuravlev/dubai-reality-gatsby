@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import './ContactForm.scss';
 import { Form } from 'react-final-form';
-import { Button, Input, Textarea } from 'components/Form';
+import { Button, Input, Textarea } from 'components/form';
 import { emailPattern } from 'utils/validators';
 
 interface ContactFormProps {

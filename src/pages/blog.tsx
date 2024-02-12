@@ -2,7 +2,7 @@ import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
 import 'styles/main.scss';
 import { MainLayout } from "layouts/MainLayout/MainLayout";
-import { ArticlesSection } from "entities/ArticlesSection/ArticlesSection";
+import { ArticlesSection } from "entities/Articles/ArticlesSection/ArticlesSection";
 
 const BlogPage: React.FC<PageProps> = () => {
   

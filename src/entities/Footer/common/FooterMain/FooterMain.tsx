@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import './FooterMain.scss';
 import { listData } from './listData';
-import { List } from 'components/List/List';
-import { Button } from 'components/Form';
+import { List } from 'components/lists';
+import { Button } from 'components/form';
 
 export const FooterMain = memo(() => {
   return (
