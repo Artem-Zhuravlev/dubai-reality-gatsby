@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Video } from "../../components/Video/Video";
+import { Video } from "components/Video/Video";
 
 interface VideoSectionProps {
   className?: string

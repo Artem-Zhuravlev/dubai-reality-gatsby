@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Accordion, AccordionItemProps } from '../../components/Accordion';
+import { Accordion, AccordionItemProps } from 'components/Accordion';
 import './FaqSection.scss';
 
 interface FaqSectionProps {

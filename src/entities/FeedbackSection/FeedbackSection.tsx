@@ -1,6 +1,6 @@
 import React, { memo, useId } from 'react';
 import Slider from 'react-slick';
-import { FeedbackCard } from '../../components/FeedbackCard/FeedbackCard';
+import { FeedbackCard } from 'components/FeedbackCard/FeedbackCard';
 import { settings } from './settings';
 import { items } from './data';
 import './FeedbackSection.scss';

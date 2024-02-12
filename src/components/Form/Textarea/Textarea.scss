@@ -1,0 +1,33 @@
+.textarea {
+  position: relative;
+  min-height: 218px;
+  border: var(--interface-size-small) solid var(--color-text-inverted);
+  padding: 15px 20px;
+  font-family: var(--text-main);
+  font-size: var(--font-size-main);
+  outline-offset: calc(var(--interface-size) * -1);
+  outline-width: var(--interface-size);
+  width: 100%;
+  resize: none;
+
+  &--error {
+    outline-color: var(--color-error);
+    border-color: var(--color-error);
+  }
+
+  &__error-message {
+    position: absolute;
+    color: var(--color-error);
+    bottom: -23px;
+    left: 0;
+    width: 100%;
+    font-weight: 700;
+    text-align: left;
+    padding: 0 5px 0 20px;
+    font-size: 1.4rem;
+  }
+}
+
+.input-wrapper {
+  position: relative;
+}

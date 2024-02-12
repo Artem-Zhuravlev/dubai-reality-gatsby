@@ -1,10 +1,10 @@
-@import '../../styles/helpers';
+@import '../../../styles/helpers';
 
 .contact-us {
   padding-top: 88px;
   padding-bottom: 93px;
   text-align: center;
-  background: url('../../static/contact-bg.jpg')no-repeat center;
+  background: url('../../../static/contact-bg.jpg')no-repeat center;
   background-size: cover;
   color: var(--color-bg-main);
 

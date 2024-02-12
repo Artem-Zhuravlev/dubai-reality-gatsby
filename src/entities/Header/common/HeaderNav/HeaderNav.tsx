@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import React, { memo } from 'react';
-import { Dropdown, DropdownItem } from '../../../../components/Dropdown/Dropdown';
+import { Dropdown, DropdownItem } from 'components/Dropdown/Dropdown';
 import './HeaderNav.scss';
 import classNames from 'classnames';
 

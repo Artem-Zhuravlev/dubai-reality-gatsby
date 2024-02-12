@@ -1,5 +1,5 @@
 import React, { ChangeEvent, memo, useEffect, useState } from 'react';
-import { useDebounce } from '../../hooks/useDebounce';
+import { useDebounce } from '../../../hooks/useDebounce';
 import './InputSeach.scss';
 
 interface InputSearchProps {

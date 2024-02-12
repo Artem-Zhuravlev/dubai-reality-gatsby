@@ -1,12 +1,12 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
 import '../styles/main.scss';
-import { MainLayout } from "../layouts/MainLayout/MainLayout";
-import { ArticlesBanner } from "../entities/ArticlesBanner/ArticlesBanner";
-import { Content } from "../components/Content/Content";
-import { ContactUsSection } from "../entities/ContactUsSection/ContactUsSection";
-import { ArticlesPreviewSection } from "../entities/ArticlesPreviewSection/ArticlesPreviewSection";
-import { BreadcrumbsSection } from "../entities/BreadcrumbsSection/BreadcrumbsSection";
+import { MainLayout } from "layouts/MainLayout/MainLayout";
+import { ArticlesBanner } from "entities/ArticlesBanner/ArticlesBanner";
+import { Content } from "components/Content/Content";
+import { ContactUsSection } from "entities/Contact/ContactUsSection/ContactUsSection";
+import { ArticlesPreviewSection } from "entities/ArticlesPreviewSection/ArticlesPreviewSection";
+import { BreadcrumbsSection } from "entities/BreadcrumbsSection/BreadcrumbsSection";
 
 const BlogPage: React.FC<PageProps> = () => {
   

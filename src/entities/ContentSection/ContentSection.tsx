@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import './ContentSection.scss';
-import { Blockquote } from '../../components/Blockquote/Blockquote';
-import { ImageTextCol } from '../../components/ImageTextCol/ImageTextCol';
+import { Blockquote } from 'components/Blockquote/Blockquote';
+import { ImageTextCol } from 'components/ImageTextCol/ImageTextCol';
 
 export const ContentSection = memo((props) => {
   return (

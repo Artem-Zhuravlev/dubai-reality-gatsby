@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { Button } from '../../../../components/Button/Button';
+import { Button } from 'components/Form';
 import './HeaderControls.scss';
 import classNames from 'classnames';
 

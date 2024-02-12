@@ -1,8 +1,7 @@
 import React, { memo } from 'react';
 import { Form } from "react-final-form";
-import { emailPattern } from '../../utils/validators';
-import { Input } from "../../components/Input/Input";
-import { Button } from "../../components/Button/Button";
+import { emailPattern } from 'utils/validators';
+import { Button, Input } from "components/Form";
 import './ContactUsSection.scss';
 
 

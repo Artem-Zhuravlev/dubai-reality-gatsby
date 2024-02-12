@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import './ArticlesPreviewSection.scss';
 import { Link } from 'gatsby';
-import { HiddenInfoCard } from '../../components/HiddenInfoCard/HiddenInfoCard';
+import { HiddenInfoCard } from 'components/HiddenInfoCard/HiddenInfoCard';
 
 interface ArticlesData {
   slug: string;
