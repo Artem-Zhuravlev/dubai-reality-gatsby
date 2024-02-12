@@ -12,6 +12,10 @@
     color: var(--color-text-inverted);
     font-size: 2rem;
 
+    @include media('<phone') {
+      padding-left: 70px;
+    }
+
     &::before {
       position: absolute;
       display: flex;
@@ -21,6 +25,12 @@
       font-size: 12rem;
       line-height: 0.5;
       color: var(--color-primary);
+
+      @include media('<phone') {
+        font-size: 6rem;
+        top: 50px;
+        left: 20px;
+      }
     }
 
     em {

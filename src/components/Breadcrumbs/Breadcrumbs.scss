@@ -1,0 +1,35 @@
+@import '../../styles/helpers';
+
+.breadcrumbs {
+  @extend %listreset;
+
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--color-text-inverted);
+    transition: color var(--transition);
+
+    &:hover,
+    &:focus {
+      color: var(--color-primary);
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      width: 8px;
+      height: 8px;
+      border-top: var(--interface-size-small) solid var(--color-text-inverted);
+      border-right: var(--interface-size-small) solid var(--color-text-inverted);
+      transform-origin: 50%;
+      transform: rotate(45deg);
+    }
+  }
+}
