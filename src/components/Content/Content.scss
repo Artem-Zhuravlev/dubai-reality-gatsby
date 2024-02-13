@@ -90,4 +90,10 @@
   ul {
     padding-left: 15px;
   }
+
+  p {
+    &:not(:last-of-type) {
+      margin-bottom: 30px;
+    }
+  }
 }
