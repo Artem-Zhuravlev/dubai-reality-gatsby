@@ -49,7 +49,7 @@ export const HeaderNav = memo(({ isOpenMenu }: HeaderNavProps) => {
         </li>
         <li className="header-nav__item">
           <Link
-            to="/contact"
+            to="/contacts"
             className='header-nav__link'
           >
             Contact

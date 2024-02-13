@@ -40,7 +40,7 @@ export const HiddenInfoCard = memo((props: HiddenInfoCardProps) => {
     >
       <div className="hidden-info-card__img">
         <StaticImage
-          src="../../static/card-img.jpg"
+          src="../../../static/card-img.jpg"
           alt="some alt"
         />  
       </div>

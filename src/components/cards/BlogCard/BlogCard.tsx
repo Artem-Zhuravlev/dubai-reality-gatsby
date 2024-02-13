@@ -25,7 +25,7 @@ export const BlogCard = memo((props: BlogCardProps) => {
     >
       <div className="blog-card__img">
         <StaticImage
-          src="../../static/blog-img.jpg"
+          src="../../../static/blog-img.jpg"
           alt={title}
         />
       </div>
