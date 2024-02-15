@@ -42,7 +42,7 @@ export const Banner = memo(() => {
                 gatsbyImageData(
                   width: 1920
                   placeholder: BLURRED
-                  formats: [WEBP]
+                  formats: [AUTO]
                 )
               }
             }

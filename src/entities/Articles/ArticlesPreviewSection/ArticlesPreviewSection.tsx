@@ -32,8 +32,6 @@ export const ArticlesPreviewSection = memo((props: ArticlesPreviewSectionProps) 
     category
   } = props;
 
-  console.log(items);
-
   return (
     <section className="articles-preview section">
       <div className="container">

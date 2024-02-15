@@ -31,14 +31,6 @@ export const BlogCard = memo((props: BlogCardProps) => {
     image = getImage(imageUrl);
   }
 
-  const titleCropper = useCallback((): string => {
-    // if (title.length > 25) {
-    //   return title.slice(0, 25).concat('...');
-    // }
-  
-    return title;
-  }, [title]);
-
   return (
     <Link
       to={`/${to}`}
@@ -71,7 +63,7 @@ export const BlogCard = memo((props: BlogCardProps) => {
         )}
         
         <h4 className="blog-card__title">
-          {titleCropper()}
+          {title}
         </h4>
         <p>
           {description}

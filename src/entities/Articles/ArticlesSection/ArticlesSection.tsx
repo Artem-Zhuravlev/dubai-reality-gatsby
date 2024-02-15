@@ -3,51 +3,62 @@ import { BlogCard, BlogCardProps } from 'components/cards';
 import './ArticlesSection.scss';
 import { InputSearch } from 'components/form';
 import { Pagination } from 'components/Pagination/Pagination';
+import { graphql, useStaticQuery } from "gatsby";
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
-interface ArticleItem extends Omit<BlogCardProps, 'to'> {
-  slug: string;
+interface ArticleItem {
+  frontmatter: {
+    slug: string;
+    title: string;
+    categoryTitle: string;
+    category: string;
+    description: string;
+    banner: IGatsbyImageData
+  }
 }
 
 export const ArticlesSection = memo(() => {
   const id = useId();
   const [pageCount, setPageCount] = useState(0);
+  const [filteredItems, setFilteredItems] = useState<ArticleItem[] | null>(null);
+
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark(
+        filter: { frontmatter: { category: { in: "blog" } } }
+      ) {
+        nodes {
+          frontmatter {
+            category
+            categoryTitle
+            slug
+            title
+            description
+            banner {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 380
+                  height: 350
+                  placeholder: BLURRED
+                  formats: [AUTO]
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const items: ArticleItem[] = data.allMarkdownRemark.nodes;
 
   const handleSearch = (value: string) => {
-    console.log(value, 'from upper scope')
-  }
+    const filteredItems = items.filter((node: { frontmatter: { title: string; }; }) => {
+      return node.frontmatter.title.toLowerCase().includes(value.toLowerCase())
+    })
 
-  const items:ArticleItem[] = [
-    {
-      slug: 'some-slug',
-      title: 'Commercial property in Abu Dhabi',
-      description: 'In Dubai, the final statistics of all transactions related to real estate for the first quarter has been confirmed ...'
-    },
-    {
-      slug: 'some-slug',
-      title: 'Commercial property in Abu Dhabi',
-      description: 'In Dubai, the final statistics of all transactions related to real estate for the first quarter has been confirmed ...'
-    },
-    {
-      slug: 'some-slug',
-      title: 'Commercial property in Abu Dhabi',
-      description: 'In Dubai, the final statistics of all transactions related to real estate for the first quarter has been confirmed ...'
-    },
-    {
-      slug: 'some-slug',
-      title: 'Commercial property in Abu Dhabi',
-      description: 'In Dubai, the final statistics of all transactions related to real estate for the first quarter has been confirmed ...'
-    },
-    {
-      slug: 'some-slug',
-      title: 'Commercial property in Abu Dhabi',
-      description: 'In Dubai, the final statistics of all transactions related to real estate for the first quarter has been confirmed ...'
-    },
-    {
-      slug: 'some-slug',
-      title: 'Commercial property in Abu Dhabi',
-      description: 'In Dubai, the final statistics of all transactions related to real estate for the first quarter has been confirmed ...'
-    }
-  ]
+    setFilteredItems(filteredItems)
+  }
 
   return (
     <section className="articles-section container-fluid section">
@@ -63,24 +74,30 @@ export const ArticlesSection = memo(() => {
         className="articles-section__content"
       >
         {
-          items ? items.map((item, index) => (
+          (filteredItems && filteredItems.length) ? filteredItems.map((item, index) => (
             <BlogCard
               key={`${id}_${index}`}
-              title={item.title}
-              to={item.slug}
-              category={item.category}
-              description={item.description}
+              title={item.frontmatter.title}
+              to={`${item.frontmatter.category}/${item.frontmatter.slug}`}
+              category={item.frontmatter.categoryTitle}
+              imageUrl={item.frontmatter.banner}
+              description={item.frontmatter.description}
             />
           )) : (
             <p>Articles not found</p>
           )
         }
       </div>
-      <footer className="articles-section__footer">
-        <Pagination
-          pageCount={items.length}
-        />
-      </footer>
+      {
+        items.length > 6 && (
+          <footer className="articles-section__footer">
+            <Pagination
+              pageCount={items.length}
+            />
+          </footer>
+        )
+      }
+      
     </section>
   );
 });

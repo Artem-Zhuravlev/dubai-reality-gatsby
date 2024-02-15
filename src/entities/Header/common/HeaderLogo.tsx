@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { memo } from 'react';
+import logo from 'static/logo.png'
 
 export const HeaderLogo = memo(() => {
   return (
@@ -9,8 +10,8 @@ export const HeaderLogo = memo(() => {
         to="/"
         className='header-logo__link'
       >
-        <StaticImage
-          src="../../../static/logo.png"
+        <img
+          src={logo}
           alt="DubaiRealty"
           loading="lazy"
         />

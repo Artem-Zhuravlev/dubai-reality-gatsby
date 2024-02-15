@@ -52,10 +52,6 @@ export const HiddenInfoCard = memo((props: HiddenInfoCardProps) => {
             ? <GatsbyImage image={image} alt={title}/>
             : <StaticImage src="../../../static/card-img.jpg" alt="some alt" />  
         }
-        <StaticImage
-          src="../../../static/card-img.jpg"
-          alt="some alt"
-        />  
       </div>
       <div className="hidden-info-card__description">
         {

@@ -24,6 +24,13 @@ export const CarouselSection = memo(() => {
     query {
       allMarkdownRemark(
         limit: 8
+        filter: {
+          frontmatter: {
+            category: {
+              nin: ["", "feedbacks"]
+            }
+          }
+        }
       ) {
         nodes {
           frontmatter {
@@ -38,7 +45,7 @@ export const CarouselSection = memo(() => {
                   height: 580
                   width: 450
                   placeholder: BLURRED
-                  formats: [WEBP]
+                  formats: [AUTO]
                 )
               }
             }

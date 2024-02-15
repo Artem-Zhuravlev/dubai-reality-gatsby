@@ -38,8 +38,6 @@ const ContactPage: FC<PageProps<MarkdownRemarkData>> = ({ data }) => {
   const { html } = data?.markdownRemark;
   const items = data.allMarkdownRemark.nodes;
 
-  console.log(items);
-
   return (
     <MainLayout>
       <ArticlesBanner
@@ -74,7 +72,7 @@ export const query = graphql`
             gatsbyImageData(
               width: 1920
               placeholder: BLURRED
-              formats: [WEBP]
+              formats: [AUTO]
             )
           }
         }
@@ -96,7 +94,7 @@ export const query = graphql`
                 width: 380
                 height: 350
                 placeholder: BLURRED
-                formats: [WEBP]
+                formats: [AUTO]
               )
             }
           }

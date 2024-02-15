@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import './FooterTop.scss';
 import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
+import logo from 'static/logo.png'
 
 export const FooterTop = memo(() => {
   return (
@@ -9,9 +9,9 @@ export const FooterTop = memo(() => {
       <Link
         to="/"
       >
-        <StaticImage
+        <img
           className='footer-top__logo'
-          src="../../../../static/logo.png"
+          src={logo}
           alt="DubaiRealty"
           loading="lazy"
         />
