@@ -1,11 +1,12 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
 import 'styles/main.scss';
-import { MainLayout } from "layouts/MainLayout/MainLayout";
-import { ArticlesBanner } from "entities/Articles";
-import { ContactUsSection } from "entities/Contact";
-import { Content } from "components/Content/Content";
-import { CategoriesSection } from "entities/CategoriesSection/CategoriesSection";
+import { MainLayout } from '../layouts/MainLayout/MainLayout';
+import { ArticlesBanner } from '../entities/Articles';
+import { CategoriesSection } from '../entities/CategoriesSection/CategoriesSection';
+import { ContactUsSection } from '../entities/Contact';
+import { Content } from '../components/Content/Content';
+
 
 const ContactPage: React.FC<PageProps> = () => {
   return (

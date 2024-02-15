@@ -42,8 +42,7 @@
   img {
     display: block;
     max-width: 100%;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin: 40px auto;
   }
 
   h1, h2, h3, h4, h5, h6, p, dl, hr, ul, ol {
@@ -94,6 +93,10 @@
   p {
     &:not(:last-of-type) {
       margin-bottom: 30px;
+    }
+
+    &:has(img) {
+      max-width: 100%;
     }
   }
 }

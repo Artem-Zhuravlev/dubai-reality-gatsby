@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import React, { memo } from 'react';
 import './HiddenInfoCard.scss';
-import { StaticImage } from 'gatsby-plugin-image';
+import { StaticImage, GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import classNames from 'classnames';
 
 interface HiddenInfoCardProps {
@@ -12,6 +12,7 @@ interface HiddenInfoCardProps {
   small?: boolean;
   date?: string;
   dark?: boolean;
+  imageUrl?: IGatsbyImageData;
 }
 
 export const HiddenInfoCard = memo((props: HiddenInfoCardProps) => {
@@ -22,7 +23,8 @@ export const HiddenInfoCard = memo((props: HiddenInfoCardProps) => {
     linkName,
     small,
     date,
-    dark
+    dark,
+    imageUrl
   } = props;
 
   const cardClass = classNames(
@@ -33,12 +35,23 @@ export const HiddenInfoCard = memo((props: HiddenInfoCardProps) => {
     }
   );
 
+  let image: any;
+
+  if (imageUrl) {
+    image = getImage(imageUrl);
+  }
+
   return (
     <Link
       className={cardClass}
       to={`/${to}`}
     >
       <div className="hidden-info-card__img">
+        {
+          imageUrl
+            ? <GatsbyImage image={image} alt={title}/>
+            : <StaticImage src="../../../static/card-img.jpg" alt="some alt" />  
+        }
         <StaticImage
           src="../../../static/card-img.jpg"
           alt="some alt"

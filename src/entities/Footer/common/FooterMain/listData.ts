@@ -11,27 +11,27 @@ export const listData: ListData[] = [
     title: 'Buy',
     list: [
       {
-        to: 'apartment-in-dubai',
+        to: '/buy/apartment-in-dubai',
         value: 'Apartment in Dubai'
       },
       {
-        to: 'house-in-dubai',
+        to: '/buy/house-in-dubai',
         value: 'House in Dubai'
       },
       {
-        to: 'apartments-in-dubai',
+        to: '/buy/apartments-in-dubai',
         value: 'Apartments in Dubai'
       },
       {
-        to: 'loft-in-dubai',
+        to: '/buy/loft-in-dubai',
         value: 'Loft in Dubai'
       },
       {
-        to: 'penthouse-in-dubai',
+        to: '/buy/penthouse-in-dubai',
         value: 'Penthouse in Dubai'
       },
       {
-        to: 'villa-in-dubai',
+        to: '/buy/villa-in-dubai',
         value: 'Villa in Dubai'
       }
     ]
@@ -40,27 +40,27 @@ export const listData: ListData[] = [
     title: 'Services',
     list: [
       {
-        to: 'property-management-in-dubai',
+        to: '/services/property-management',
         value: 'Property management in Dubai, UAE'
       },
       {
-        to: 'sell-property-in-dubai',
+        to: '/services/sell-property',
         value: 'Sell property in Dubai, UAE'
       },
       {
-        to: 'rent-property-in-dubai',
+        to: '/services/rent-property',
         value: 'Rent property in Dubai, UAE'
       },
       {
-        to: 'investments-in-dubai',
+        to: '/services/investments',
         value: 'Investments in Dubai, UAE'
       },
       {
-        to: 'real-estate-for-cryptocurrency-in-dubai',
+        to: '/services/real-estate-for-cryptocurrency',
         value: 'Real estate for cryptocurrency in Dubai'
       },
       {
-        to: 'moving-to-dubai',
+        to: '/services/moving-to-dubai',
         value: 'Moving to Dubai, UAE'
       }
     ]
@@ -69,28 +69,24 @@ export const listData: ListData[] = [
     title: 'Information',
     list: [
       {
-        to: 'video',
+        to: '/information/video',
         value: 'Video'
       },
       {
-        to: 'podcasts',
+        to: '/information/podcasts',
         value: 'Podcasts'
       },
       {
-        to: 'laws',
+        to: '/information/laws',
         value: 'Laws'
       },
       {
-        to: 'questions-and-answers',
+        to: '/information/questions',
         value: 'Questions and answers'
       },
       {
-        to: 'books',
+        to: '/information/books',
         value: 'Books'
-      },
-      {
-        to: 'articles',
-        value: 'Articles'
       }
     ]
   },
@@ -98,25 +94,13 @@ export const listData: ListData[] = [
     title: 'About company',
     list: [
       {
-        to: 'jobs',
+        to: '/about-company/jobs',
         value: 'Jobs '
       },
       {
-        to: 'licenses',
+        to: '/about-company/licenses',
         value: 'Licenses'
       },
-      {
-        to: 'why-we-are',
-        value: 'Why are we'
-      },
-      {
-        to: 'questions-and-answers',
-        value: 'Questions and answers'
-      },
-      {
-        to: 'real-estate-agency',
-        value: 'Real estate agency'
-      }
     ]
   }
 ];

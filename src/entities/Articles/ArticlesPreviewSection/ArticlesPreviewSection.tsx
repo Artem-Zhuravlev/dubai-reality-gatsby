@@ -2,47 +2,37 @@ import React, { memo } from 'react';
 import './ArticlesPreviewSection.scss';
 import { Link } from 'gatsby';
 import { HiddenInfoCard } from 'components/cards';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+
 
 interface ArticlesData {
-  slug: string;
-  title: string;
-  description: string;
-  date?: string;
+  frontmatter: {
+    slug: string;
+    title: string;
+    description: string;
+    date?: string;
+    banner?: IGatsbyImageData
+  }
 }
 
 interface ArticlesPreviewSectionProps {
   className?: string;
   withDarkCards?: boolean;
   linkName?: string;
+  items: ArticlesData[];
+  category?: string;
 }
 
 export const ArticlesPreviewSection = memo((props: ArticlesPreviewSectionProps) => {
   const {
     className,
     withDarkCards = true,
-    linkName = 'See project'
+    linkName = 'See project',
+    items,
+    category
   } = props;
 
-  const items: ArticlesData[] = [
-    {
-      slug: 'slug-1',
-      title: 'Dubai',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat molestie integer aliquam consectetur. Faucibus vitae dui massa tellus magna sit.',
-      date: '2024-06-10'
-    },
-    {
-      slug: 'slug-2',
-      title: 'Dubai 1',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat molestie integer aliquam consectetur. Faucibus vitae dui massa tellus magna sit.',
-      date: '2024-06-12'
-    },
-    {
-      slug: 'slug-3',
-      title: 'Dubai 2',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat molestie integer aliquam consectetur. Faucibus vitae dui massa tellus magna sit.',
-      date: '2024-06-13'
-    }
-  ]
+  console.log(items);
 
   return (
     <section className="articles-preview section">
@@ -62,14 +52,15 @@ export const ArticlesPreviewSection = memo((props: ArticlesPreviewSectionProps) 
           {
             items && items.map((item, index) => (
               <HiddenInfoCard
-                key={`${item.slug}_${index}`}
-                to={item.slug}
-                title={item.title}
-                description={item.description}
+                key={`${item.frontmatter.slug}_${index}`}
+                to={`${category}/${item.frontmatter.slug}`}
+                title={item.frontmatter.title}
+                description={item.frontmatter.description}
                 linkName={linkName}
                 small
-                date={item.date}
+                date={item.frontmatter.date}
                 dark={withDarkCards}
+                imageUrl={item.frontmatter.banner}
               />
             ))
           }

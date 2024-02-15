@@ -10,9 +10,9 @@ interface HeaderNavProps {
 
 export const HeaderNav = memo(({ isOpenMenu }: HeaderNavProps) => {
   const dropdownList: DropdownItem[] = [
-    { to: 'category-number-one', value: "Category number one" },
-    { to: 'apartments-in-dubai', value: "Apartments in Dubai" },
-    { to: 'category-number-twenty-five', value: "Category number twenty five" },
+    { to: '/buy/house-in-dubai/', value: "House in Dubai" },
+    { to: '/buy/apartments-in-dubai', value: "Apartments in Dubai" },
+    { to: '/buy/villa-in-dubai', value: "Villa in Dubai" },
   ]
 
   const headerNavClass = classNames(
@@ -41,7 +41,7 @@ export const HeaderNav = memo(({ isOpenMenu }: HeaderNavProps) => {
         </li>
         <li className="header-nav__item">
           <Link
-            to="/about"
+            to="/about-company"
             className='header-nav__link'
           >
             About
