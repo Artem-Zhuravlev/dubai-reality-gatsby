@@ -4,23 +4,12 @@ import './ArticlesSection.scss';
 import { InputSearch } from 'components/form';
 import { Pagination } from 'components/Pagination/Pagination';
 import { graphql, useStaticQuery } from "gatsby";
-import { IGatsbyImageData } from 'gatsby-plugin-image';
-
-interface ArticleItem {
-  frontmatter: {
-    slug: string;
-    title: string;
-    categoryTitle: string;
-    category: string;
-    description: string;
-    banner: IGatsbyImageData
-  }
-}
+import { ICard } from 'interfaces/ICard';
 
 export const ArticlesSection = memo(() => {
   const id = useId();
   const [pageCount, setPageCount] = useState(0);
-  const [filteredItems, setFilteredItems] = useState<ArticleItem[] | null>(null);
+  const [filteredItems, setFilteredItems] = useState<ICard[] | null>(null);
 
   const data = useStaticQuery(graphql`
     query {
@@ -50,7 +39,7 @@ export const ArticlesSection = memo(() => {
     }
   `);
 
-  const items: ArticleItem[] = data.allMarkdownRemark.nodes;
+  const items: ICard[] = data.allMarkdownRemark.nodes;
 
   const handleSearch = (value: string) => {
     const filteredItems = items.filter((node: { frontmatter: { title: string; }; }) => {

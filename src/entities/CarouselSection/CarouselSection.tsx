@@ -4,18 +4,7 @@ import Slider from 'react-slick';
 import { settings } from './sliderSettings';
 import { HiddenInfoCard } from 'components/cards';
 import { graphql, useStaticQuery } from 'gatsby';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
-
-
-interface ISliderItems {
-  frontmatter: {
-    slug: string;
-    title: string;
-    description: string;
-    category: string;
-    banner: IGatsbyImageData;
-  }
-}
+import { ICard } from 'interfaces/ICard';
 
 export const CarouselSection = memo(() => {
   const id = useId();
@@ -55,7 +44,7 @@ export const CarouselSection = memo(() => {
     }
   `)
 
-  const items: ISliderItems[] = data.allMarkdownRemark.nodes;
+  const items: ICard[] = data.allMarkdownRemark.nodes;
 
   return (
     <section className="carousel-section container-fluid section">

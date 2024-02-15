@@ -2,24 +2,13 @@ import React, { memo } from 'react';
 import './ArticlesPreviewSection.scss';
 import { Link } from 'gatsby';
 import { HiddenInfoCard } from 'components/cards';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
-
-
-interface ArticlesData {
-  frontmatter: {
-    slug: string;
-    title: string;
-    description: string;
-    date?: string;
-    banner?: IGatsbyImageData
-  }
-}
+import { ICard } from 'interfaces/ICard';
 
 interface ArticlesPreviewSectionProps {
   className?: string;
   withDarkCards?: boolean;
   linkName?: string;
-  items: ArticlesData[];
+  items: ICard[];
   category?: string;
 }
 

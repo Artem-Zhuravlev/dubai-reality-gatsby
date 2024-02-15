@@ -10,7 +10,7 @@ import {
 
 export interface BlogCardProps {
   to: string;
-  description: string;
+  description?: string;
   title: string;
   category?: string;
   imageUrl?: IGatsbyImageData
@@ -65,9 +65,7 @@ export const BlogCard = memo((props: BlogCardProps) => {
         <h4 className="blog-card__title">
           {title}
         </h4>
-        <p>
-          {description}
-        </p>
+        {description && <p>{description}</p>}
         <b className="blog-card__link">Learn more</b>
       </div>
     </Link>

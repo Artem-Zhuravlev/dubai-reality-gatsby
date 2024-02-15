@@ -33,7 +33,6 @@ export const FeedbackSection = memo(() => {
 
   const items: IFeedbackItems[] = data.allMarkdownRemark.nodes[0].frontmatter.items;
 
-
   return (
     <div className="feedback-section section">
       <Slider

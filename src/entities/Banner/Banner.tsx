@@ -6,18 +6,8 @@ import {
   BannerPagination
 } from './common';
 import './Banner.scss';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { graphql, useStaticQuery } from 'gatsby';
-
-export interface IBannerSliderItems {
-  frontmatter: {
-    slug: string;
-    category: string;
-    title: string;
-    categoryTitle: string;
-    banner: IGatsbyImageData;
-  }
-}
+import { ICard } from 'interfaces/ICard';
 
 export const Banner = memo(() => {
   const sliderRef = useRef<Slider>(null);
@@ -52,7 +42,7 @@ export const Banner = memo(() => {
     }
   `)
 
-  const items: IBannerSliderItems[] = data.allMarkdownRemark.nodes;
+  const items: ICard[] = data.allMarkdownRemark.nodes;
 
   const handleNext = () => {
     if (sliderRef.current) {
