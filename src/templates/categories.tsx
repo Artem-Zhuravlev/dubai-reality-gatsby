@@ -1,22 +1,57 @@
-import * as React from "react"
+import React, { FC } from "react"
 import type { HeadFC, PageProps } from "gatsby"
 import 'styles/main.scss';
+import { graphql } from "gatsby";
 import { MainLayout } from '../layouts/MainLayout/MainLayout';
 import { ArticlesBanner } from '../entities/Articles';
 import { CategoriesSection } from '../entities/CategoriesSection/CategoriesSection';
 import { ContactUsSection } from '../entities/Contact';
 import { Content } from '../components/Content/Content';
+import { IGatsbyImageData } from "gatsby-plugin-image";
 
 
-const ContactPage: React.FC<PageProps> = () => {
+interface MarkdownRemarkData {
+  markdownRemark: {
+    html: string;
+    frontmatter: {
+      title: string;
+      slug: string;
+      category: string;
+      categoryTitle: string;
+      banner: IGatsbyImageData;
+    };
+  };
+  allMarkdownRemark: {
+    nodes: Array<any>
+  }
+}
+
+
+const ContactPage: FC<PageProps<MarkdownRemarkData>> = ({ data }) => {
+  const {
+    title,
+    slug,
+    category,
+    categoryTitle,
+    banner
+  } = data.markdownRemark.frontmatter;
+  const { html } = data?.markdownRemark;
+  const items = data.allMarkdownRemark.nodes;
+
+  console.log(items);
+
   return (
     <MainLayout>
       <ArticlesBanner
-        title="Apartments in Dubai"
+        title={title}
+        imageUrl={banner}
       />
-      <CategoriesSection title="Best Offers" />
+      <CategoriesSection
+        title="Best Offers"
+        items={items}
+      />
       <ContactUsSection />
-      <Content content={"<h2 class='h1'>Apartments</h2><p>To and from, fascinated her: every pebble, ant, stick, leaf, blade of grass, and crack in the sidewalk was something to be picked up, looked at, tasted, smelled, and shaken. Everything was interesting to her. She knew nothing. I knew everything…been there, done that. She was in the moment, I was in the past. She was mindful. I was mindless.</p><h4>Everything along the way</h4><p>One touch of a red-hot stove is usually all we need to avoid that kind of discomfort in the future. The same is true as we experience the emotional sensation of stress from our first instances of social rejection or ridicule. We quickly learn to fear and thus automatically avoid potentially stressful situations of all kinds, including the most common of all: making mistakes.</p>"} />
+      <Content content={html} />
     </MainLayout>
   )
 }
@@ -24,3 +59,49 @@ const ContactPage: React.FC<PageProps> = () => {
 export default ContactPage
 
 export const Head: HeadFC = () => <title>Contacts</title>
+
+export const query = graphql`
+  query PostQuery($slug: String) {
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+      html 
+      frontmatter {
+        title
+        slug 
+        category
+        categoryTitle
+        banner {
+          childImageSharp {
+            gatsbyImageData(
+              width: 1920
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+      }
+    },
+    allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: $slug } } }
+    ) {
+      nodes {
+        frontmatter {
+          category
+          categoryTitle
+          slug
+          title
+          description
+          banner {
+            childImageSharp {
+              gatsbyImageData(
+                width: 380
+                height: 350
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
+        }
+      }
+    }
+  }
+`

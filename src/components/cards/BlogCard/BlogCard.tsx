@@ -1,13 +1,19 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { Link } from 'gatsby';
 import './BlogCard.scss';
-import { StaticImage } from 'gatsby-plugin-image';
+import {
+  StaticImage,
+  IGatsbyImageData,
+  GatsbyImage,
+  getImage
+} from 'gatsby-plugin-image';
 
 export interface BlogCardProps {
   to: string;
   description: string;
   title: string;
   category?: string;
+  imageUrl?: IGatsbyImageData
 }
 
 export const BlogCard = memo((props: BlogCardProps) => {
@@ -15,8 +21,23 @@ export const BlogCard = memo((props: BlogCardProps) => {
     to,
     title,
     description,
-    category
+    category,
+    imageUrl
   } = props;
+
+  let image: any;
+
+  if (imageUrl) {
+    image = getImage(imageUrl);
+  }
+
+  const titleCropper = useCallback((): string => {
+    // if (title.length > 25) {
+    //   return title.slice(0, 25).concat('...');
+    // }
+  
+    return title;
+  }, [title]);
 
   return (
     <Link
@@ -24,10 +45,21 @@ export const BlogCard = memo((props: BlogCardProps) => {
       className="blog-card"
     >
       <div className="blog-card__img">
-        <StaticImage
-          src="../../../static/blog-img.jpg"
-          alt={title}
-        />
+        {
+          imageUrl ? (
+            <GatsbyImage
+              image={image}
+              alt={title}
+            />
+            
+          ) : (
+            <StaticImage
+              src="../../../static/blog-img.jpg"
+              alt={title}
+            />
+          )
+        }
+       
       </div>
       <div className="blog-card__description">
         {category && (
@@ -39,7 +71,7 @@ export const BlogCard = memo((props: BlogCardProps) => {
         )}
         
         <h4 className="blog-card__title">
-          {title}
+          {titleCropper()}
         </h4>
         <p>
           {description}

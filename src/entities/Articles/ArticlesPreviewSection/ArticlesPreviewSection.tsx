@@ -42,7 +42,7 @@ export const ArticlesPreviewSection = memo((props: ArticlesPreviewSectionProps) 
             Useful articles
           </h2>
           <Link
-            to="/route"
+            to={`/${category}`}
             className="articles-preview__show-more"
           >
             View all articles
