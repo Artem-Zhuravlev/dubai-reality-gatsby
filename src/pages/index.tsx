@@ -21,7 +21,6 @@ const IndexPage: React.FC<PageProps> = () => {
       <VideoSection />
       <ContentSection />
       <ContactUsSection />
-      <ArticlesPreviewSection />
       <FeedbackSection />
       <FaqSection />
     </MainLayout>

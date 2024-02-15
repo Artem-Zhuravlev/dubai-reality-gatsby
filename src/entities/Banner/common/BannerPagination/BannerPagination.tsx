@@ -4,7 +4,7 @@ import './BannerPagination.scss';
 import { IBannerSliderItems } from '../../Banner';
 
 interface BannerPaginationProps {
-  items: Pick<IBannerSliderItems, 'category'>[];
+  items: IBannerSliderItems[];
   slideIndex: number;
 }
 
@@ -20,7 +20,7 @@ export const BannerPagination = memo((props: BannerPaginationProps) => {
             { 'banner-pagination__item--active' : slideIndex === index }
           )
         }>
-          {item.category}
+          {item.frontmatter.title}
         </li>
       )) }
     </ul>

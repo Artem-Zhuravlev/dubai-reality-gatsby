@@ -3,50 +3,52 @@ import './CarouselSection.scss';
 import Slider from 'react-slick';
 import { settings } from './sliderSettings';
 import { HiddenInfoCard } from 'components/cards';
+import { graphql, useStaticQuery } from 'gatsby';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 
-interface CardItems {
-  slug: string;
-  title: string;
-  description: string;
+interface ISliderItems {
+  frontmatter: {
+    slug: string;
+    title: string;
+    description: string;
+    category: string;
+    banner: IGatsbyImageData;
+  }
 }
 
 export const CarouselSection = memo(() => {
   const id = useId();
 
-
-  const items: CardItems[] = [
-    {
-      slug: 'dubai',
-      title: 'Dubai',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat molestie'
-    },
-    {
-      slug: 'dubai',
-      title: 'Dubai',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat molestie'
-    },
-    {
-      slug: 'dubai',
-      title: 'Dubai',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat molestie'
-    },
-    {
-      slug: 'dubai',
-      title: 'Dubai',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat molestie'
-    },
-    {
-      slug: 'dubai',
-      title: 'Dubai',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat molestie'
-    },
-    {
-      slug: 'dubai',
-      title: 'Dubai',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat molestie'
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark(
+        limit: 8
+      ) {
+        nodes {
+          frontmatter {
+            category
+            categoryTitle
+            slug
+            title
+            description
+            banner {
+              childImageSharp {
+                gatsbyImageData(
+                  height: 580
+                  width: 450
+                  placeholder: BLURRED
+                  formats: [WEBP]
+                )
+              }
+            }
+          }
+        }
+      }
     }
-  ]
+  `)
+
+  const items: ISliderItems[] = data.allMarkdownRemark.nodes;
 
   return (
     <section className="carousel-section container-fluid section">
@@ -64,10 +66,11 @@ export const CarouselSection = memo(() => {
           items && items.map((item, index) => (
             <HiddenInfoCard
               key={`${id}_${index}`}
-              to="route"
-              title="Dubai"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat molestie integer aliquam consectetur. Faucibus vitae dui massa tellus magna sit."
+              to={`${item.frontmatter.category}/${item.frontmatter.slug}`}
+              title={item.frontmatter.title}
+              description={item.frontmatter.description}
               linkName="See project"
+              imageUrl={item.frontmatter.banner}
             />
           ))
         }

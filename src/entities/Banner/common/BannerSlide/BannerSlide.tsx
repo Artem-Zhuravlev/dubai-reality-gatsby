@@ -1,12 +1,13 @@
 import React, { memo } from 'react';
 import './BannerSlide.scss';
 import classNames from 'classnames';
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 
 interface BannerSlideProps {
   category: string;
-  image: string;
+  categoryTitle: string;
+  imageUrl: IGatsbyImageData;
   to: string;
   title: string;
   slide: number;
@@ -16,10 +17,11 @@ interface BannerSlideProps {
 export const BannerSlide = memo((props: BannerSlideProps) => {
   const {
     category,
-    image,
+    imageUrl,
     to,
     title,
     slide,
+    categoryTitle,
     activeSlide
   } = props;
 
@@ -28,21 +30,23 @@ export const BannerSlide = memo((props: BannerSlideProps) => {
     { 'banner-slide--active': slide === activeSlide }
   )
 
+  const image: any = getImage(imageUrl);
+
   return (
     <div className={bannerSLideClass}>
-      <StaticImage
+      <GatsbyImage
         className="banner-slide__img"
-        src="../../../../static/slider1.jpg"
+        image={image}
         alt={title}
       />
       <div className="banner-slide__description container">
-        <small className="banner-slide__category">{category}</small>
+        <small className="banner-slide__category">{categoryTitle}</small>
         <h3
           className="banner-slide__title"
           dangerouslySetInnerHTML={{ __html: title }}
         />
         <Link
-          to={`/${to}`}
+          to={`/${category}/${to}`}
           className="banner-slide__link"
         >See more</Link>
       </div>

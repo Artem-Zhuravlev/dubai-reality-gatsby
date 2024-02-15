@@ -6,16 +6,53 @@ import {
   BannerPagination
 } from './common';
 import './Banner.scss';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { graphql, useStaticQuery } from 'gatsby';
 
 export interface IBannerSliderItems {
-  slug: string;
-  category: string;
-  title: string;
+  frontmatter: {
+    slug: string;
+    category: string;
+    title: string;
+    categoryTitle: string;
+    banner: IGatsbyImageData;
+  }
 }
 
 export const Banner = memo(() => {
   const sliderRef = useRef<Slider>(null);
   const [slideIndex, setSlideIndex] = useState(0);
+
+
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark(
+        limit: 3
+        filter: { frontmatter: { category: { in: "buy" } } }
+      ) {
+        nodes {
+          frontmatter {
+            category
+            categoryTitle
+            slug
+            title
+            description
+            banner {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 1920
+                  placeholder: BLURRED
+                  formats: [WEBP]
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const items: IBannerSliderItems[] = data.allMarkdownRemark.nodes;
 
   const handleNext = () => {
     if (sliderRef.current) {
@@ -27,24 +64,6 @@ export const Banner = memo(() => {
       sliderRef.current.slickPrev();
     }
   };
-
-  const bannerSliderItems: IBannerSliderItems[] = [
-    {
-      slug: 'book-consultation',
-      category: 'Lorem ipsum',
-      title: 'Welcome Home <mark>TO</mark> Luxury'
-    },
-    {
-      slug: 'book-consultation',
-      category: 'Lorem ipsum 1',
-      title: 'Welcome Home <mark>TO</mark> Luxury 123'
-    },
-    {
-      slug: 'book-consultation',
-      category: 'Lorem ipsum 2',
-      title: 'Welcome Home <mark>TO</mark> Luxury 234'
-    }
-  ]
 
   const settings: Settings = {
     slidesToShow: 1,
@@ -62,15 +81,16 @@ export const Banner = memo(() => {
         ref={sliderRef}
         {...settings}
       >
-        { bannerSliderItems && bannerSliderItems.map((slide, index) => (
+        { items && items.map((slide, index) => (
           <BannerSlide
-            image="slider1.jpg"
-            title={slide.title}
-            category={slide.category}
-            to={slide.slug}
+            imageUrl={slide.frontmatter.banner}
+            title={slide.frontmatter.title}
+            category={slide.frontmatter.category}
+            categoryTitle={slide.frontmatter.categoryTitle}
+            to={slide.frontmatter.slug}
             slide={index}
             activeSlide={slideIndex}
-            key={`${slide.slug}_${index}`}
+            key={`${slide.frontmatter.slug}_${index}`}
           />
         )) }
       </Slider>
@@ -83,9 +103,10 @@ export const Banner = memo(() => {
         />
         <BannerPagination
           slideIndex={slideIndex}
-          items={bannerSliderItems}
+          items={items}
         />
       </div>
     </div>
   );
 });
+
