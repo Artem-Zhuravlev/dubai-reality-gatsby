@@ -5,8 +5,7 @@ import { HiddenInfoCard } from 'components/cards';
 import { ICard } from 'interfaces/ICard';
 
 interface ArticlesPreviewSectionProps {
-  className?: string;
-  withDarkCards?: boolean;
+  darkMode?: boolean;
   linkName?: string;
   items: ICard[];
   category?: string;
@@ -14,8 +13,7 @@ interface ArticlesPreviewSectionProps {
 
 export const ArticlesPreviewSection = memo((props: ArticlesPreviewSectionProps) => {
   const {
-    className,
-    withDarkCards = true,
+    darkMode = true,
     linkName = 'See project',
     items,
     category
@@ -46,7 +44,7 @@ export const ArticlesPreviewSection = memo((props: ArticlesPreviewSectionProps) 
                 linkName={linkName}
                 small
                 date={item.frontmatter.date}
-                dark={withDarkCards}
+                dark={darkMode}
                 imageUrl={item.frontmatter.banner}
               />
             ))
