@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 interface InputProps {
   className?: string;
-  type?: 'text' | 'email';
+  type?: 'text' | 'email' | 'tel';
   name: string;
   placeholder: string;
 }

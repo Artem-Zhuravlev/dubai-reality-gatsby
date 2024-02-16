@@ -20,6 +20,7 @@ export const ContentSection = memo((props) => {
                   height: 300
                   placeholder: BLURRED
                   formats: [AUTO]
+                  breakpoints: [750, 1080, 1366, 1920]
                 )
               }
             }

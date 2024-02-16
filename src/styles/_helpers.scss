@@ -1,5 +1,43 @@
 @import './include-media-or';
 
+// Breakpoints for include media mixin
+$breakpoints: (
+  'phone': 480px,
+  'tablet': 768px,
+  'desktop': 980px,
+  'widescreen': 1200px,
+  'notebook': 1400px,
+);
+
+// Keywords for include media mixin
+$media-expressions: (
+  'screen': 'screen',
+  'print': 'print',
+  'handheld': 'handheld',
+  'landscape': '(orientation: landscape)',
+  'portrait': '(orientation: portrait)',
+  'retina2x': (
+    '(-webkit-min-device-pixel-ratio: 1.5)',
+    '(min-resolution: 144dpi)',
+  ),
+  'retina3x': (
+    '(-webkit-min-device-pixel-ratio: 2.5)',
+    '(min-resolution: 240dpi)',
+  ),
+  'hover': (
+    '(hover: hover)' '(pointer: fine)',
+    '(-ms-high-contrast: none)',
+    '(-ms-high-contrast: active)',
+  ),
+  'theme-light': 'prefers-color-scheme: light',
+  'theme-dark': 'prefers-color-scheme: dark',
+  'ie': (
+    '(-ms-high-contrast: none)',
+    '(-ms-high-contrast: active)',
+  ),
+);
+
+
 %listreset {
   margin: 0;
   padding: 0;
@@ -41,44 +79,7 @@
     display: flex;
     gap: 28px;
     @include media('<phone') {
-      gap: 16px;
+      gap: 0;
     }
   }
 }
-
-// Breakpoints for include media mixin
-$breakpoints: (
-  'phone': 480px,
-  'tablet': 768px,
-  'desktop': 980px,
-  'widescreen': 1200px,
-  'notebook': 1400px,
-);
-
-// Keywords for include media mixin
-$media-expressions: (
-  'screen': 'screen',
-  'print': 'print',
-  'handheld': 'handheld',
-  'landscape': '(orientation: landscape)',
-  'portrait': '(orientation: portrait)',
-  'retina2x': (
-    '(-webkit-min-device-pixel-ratio: 1.5)',
-    '(min-resolution: 144dpi)',
-  ),
-  'retina3x': (
-    '(-webkit-min-device-pixel-ratio: 2.5)',
-    '(min-resolution: 240dpi)',
-  ),
-  'hover': (
-    '(hover: hover)' '(pointer: fine)',
-    '(-ms-high-contrast: none)',
-    '(-ms-high-contrast: active)',
-  ),
-  'theme-light': 'prefers-color-scheme: light',
-  'theme-dark': 'prefers-color-scheme: dark',
-  'ie': (
-    '(-ms-high-contrast: none)',
-    '(-ms-high-contrast: active)',
-  ),
-);

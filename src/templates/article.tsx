@@ -82,6 +82,7 @@ export const query = graphql`
               width: 1920
               placeholder: BLURRED
               formats: [AUTO]
+              breakpoints: [750, 1080, 1366, 1920]
             )
           }
         }
@@ -104,6 +105,7 @@ export const query = graphql`
                 height: 350
                 placeholder: BLURRED
                 formats: [AUTO]
+                breakpoints: [750, 1080, 1366, 1920]
               )
             }
           }

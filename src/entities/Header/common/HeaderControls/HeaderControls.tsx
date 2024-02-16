@@ -2,6 +2,7 @@ import React, { memo, useState } from 'react';
 import { Button } from 'components/form';
 import './HeaderControls.scss';
 import classNames from 'classnames';
+import { useModal } from 'context/ModalContext';
 
 interface HeaderControlsProps {
   burgerHandleClick: (value: boolean) => void;
@@ -10,6 +11,7 @@ interface HeaderControlsProps {
 export const HeaderControls = memo((props: HeaderControlsProps) => {
   const { burgerHandleClick } = props;
   const [isBurgerActive, setIsBurgerActive] = useState(false);
+  const { openModal } = useModal();
 
   const onBurgerClick = () => {
     setIsBurgerActive(prev => {
@@ -29,6 +31,7 @@ export const HeaderControls = memo((props: HeaderControlsProps) => {
     <div className='header-controls'>
       <Button
         className='header-controls__booking'
+        onClick={openModal}
       >
         <span className="header-controls__booking-value">
           Book a consultation

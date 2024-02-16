@@ -14,7 +14,7 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-export const Button = memo((props: ButtonProps) => {
+export const Button = (props: ButtonProps) => {
   const {
     className,
     children,
@@ -42,4 +42,4 @@ export const Button = memo((props: ButtonProps) => {
       {children}
     </button>
   );
-});
+};

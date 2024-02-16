@@ -1,0 +1,16 @@
+.contact-modal {
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+    font-size: 2rem;
+    font-family: var(--text-main);
+    font-weight: 400;
+  }
+
+  &__form {
+    display: grid;
+    gap: 30px;
+  }
+}

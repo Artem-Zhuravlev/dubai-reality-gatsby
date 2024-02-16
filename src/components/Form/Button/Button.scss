@@ -27,5 +27,11 @@
   &.dark {
     background-color: var(--color-bg-main);
     color: var(--color-text-inverted);
+    transition: opacity var(--transition );
+
+    &:hover,
+    &:focus    {
+      opacity: 0.8;
+    }
   }
 }

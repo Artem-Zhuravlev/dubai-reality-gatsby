@@ -1,10 +1,13 @@
 import React, { memo } from 'react';
 import './FooterMain.scss';
+import { useModal } from 'context/ModalContext';
 import { listData } from './listData';
 import { List } from 'components/lists';
 import { Button } from 'components/form';
 
 export const FooterMain = memo(() => {
+  const { openModal } = useModal();
+
   return (
     <div className='footer-main container-fluid'>
       {
@@ -38,7 +41,9 @@ export const FooterMain = memo(() => {
             </li>
           </ul>
         </div>
-        <Button>
+        <Button
+          onClick={openModal}
+        >
           Book a consultation
         </Button>
       </div>

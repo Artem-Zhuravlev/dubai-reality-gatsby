@@ -16,7 +16,7 @@ export const CarouselSection = memo(() => {
         filter: {
           frontmatter: {
             category: {
-              nin: ["", "feedbacks"]
+              nin: ["", "feedbacks", null]
             }
           }
         }
@@ -35,6 +35,7 @@ export const CarouselSection = memo(() => {
                   width: 450
                   placeholder: BLURRED
                   formats: [AUTO]
+                  breakpoints: [750, 1080, 1366, 1920]
                 )
               }
             }
