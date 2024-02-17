@@ -8,7 +8,7 @@ import { InfoSection } from "entities/InfoSection/InfoSection";
 import { VideoSection } from "entities/VideoSection/VideoSection";
 import { ContentSection } from "entities/ContentSection/ContentSection";
 import { ContactUsSection } from "entities/Contact";
-import { ArticlesPreviewSection } from "entities/Articles";
+import { SEO } from "components/Seo/Seo";
 import { FeedbackSection } from "entities/FeedbackSection/FeedbackSection";
 import { FaqSection } from "entities/FaqSection/FaqSection";
 
@@ -29,4 +29,6 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head: HeadFC = () => (
+  <SEO title="Home"/>
+)

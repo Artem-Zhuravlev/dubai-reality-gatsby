@@ -1,0 +1,30 @@
+.not-found {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 8rem;
+    color: var(--color-primary);
+  }
+
+  &__link {
+    display: inline-flex;
+    color: var(--color-text-inverted);
+    font-size: 2rem;
+    text-decoration: none;
+    border-bottom: var(--interface-size) solid var(--color-text-inverted);
+    transition: border-color var(--transition);
+
+    &:hover,
+    &:focus {
+      border-color: transparent;
+    }
+  }
+}

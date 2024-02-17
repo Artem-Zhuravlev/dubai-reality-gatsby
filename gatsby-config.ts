@@ -5,7 +5,9 @@ const config: GatsbyConfig = {
     companyName: 'Dubai, UAE',
     phone: '+99 (0) 344 956 4050',
     address: '269 King Str, 05th Floor, Utral Hosue Building, Dubai, VIC 3000, UAE.',
-    email: 'info@sparch.co'
+    email: 'info@sparch.co',
+    title: 'Dubai, UAE - Home',
+    description: 'Dubai, UAE, epitomizes modern luxury with its iconic skyline, extravagant shopping destinations, and a vibrant blend of cultures.'
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin

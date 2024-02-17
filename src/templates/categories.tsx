@@ -8,6 +8,7 @@ import { CategoriesSection } from '../entities/CategoriesSection/CategoriesSecti
 import { ContactUsSection } from '../entities/Contact';
 import { Content } from '../components/Content/Content';
 import { IGatsbyImageData } from "gatsby-plugin-image";
+import { SEO } from "components/Seo/Seo";
 
 
 interface MarkdownRemarkData {
@@ -56,7 +57,6 @@ const ContactPage: FC<PageProps<MarkdownRemarkData>> = ({ data }) => {
 
 export default ContactPage
 
-export const Head: HeadFC = () => <title>Contacts</title>
 
 export const query = graphql`
   query PostQuery($slug: String) {
@@ -105,3 +105,13 @@ export const query = graphql`
     }
   }
 `
+
+export const Head: HeadFC<MarkdownRemarkData> = ({ data }) => {
+  const {
+    title,
+  } = data.markdownRemark.frontmatter;
+
+  return (
+    <SEO title={title} />
+  )
+}

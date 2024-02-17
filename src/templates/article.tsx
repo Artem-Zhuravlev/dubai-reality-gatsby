@@ -11,6 +11,7 @@ import { ContactUsSection } from "entities/Contact/ContactUsSection/ContactUsSec
 import { BreadcrumbsSection } from "entities/BreadcrumbsSection/BreadcrumbsSection";
 import { graphql } from "gatsby";
 import { IGatsbyImageData } from "gatsby-plugin-image";
+import { SEO } from "components/Seo/Seo";
 
 interface MarkdownRemarkData {
   markdownRemark: {
@@ -65,8 +66,6 @@ const BlogPage: React.FC<PageProps<MarkdownRemarkData>> = ({ data }) => {
 
 export default BlogPage
 
-export const Head: HeadFC = () => <title>Article</title>
-
 export const query = graphql`
   query PostQuery($slug: String, $category: String) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
@@ -114,3 +113,13 @@ export const query = graphql`
     }
   }
 `
+
+export const Head: HeadFC<MarkdownRemarkData> = ({ data }) => {
+  const {
+    title,
+  } = data.markdownRemark.frontmatter;
+
+  return (
+    <SEO title={title} />
+  )
+}
