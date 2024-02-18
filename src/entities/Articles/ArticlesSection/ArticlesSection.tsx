@@ -1,7 +1,7 @@
 import React, { memo, useId, useState } from 'react';
 import { BlogCard } from 'components/cards';
 import './ArticlesSection.scss';
-import { InputSearch } from 'components/form/InputSearch/InputSearch';
+import { InputSearch } from 'components/Form/InputSearch/InputSearch';
 import { Pagination } from 'components/Pagination/Pagination';
 import { graphql, useStaticQuery } from "gatsby";
 import { ICard } from 'interfaces/ICard';
