@@ -1,5 +1,5 @@
 import React, { memo, useId, useState } from 'react';
-import { BlogCard, BlogCardProps } from 'components/cards';
+import { BlogCard } from 'components/cards';
 import './ArticlesSection.scss';
 import { InputSearch } from 'components/form';
 import { Pagination } from 'components/Pagination/Pagination';
@@ -8,7 +8,6 @@ import { ICard } from 'interfaces/ICard';
 
 export const ArticlesSection = memo(() => {
   const id = useId();
-  const [pageCount, setPageCount] = useState(0);
   const [filteredItems, setFilteredItems] = useState<ICard[] | null>(null);
 
   const data = useStaticQuery(graphql`

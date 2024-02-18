@@ -1,6 +1,11 @@
-import React, { ChangeEvent, memo, useEffect, useState } from 'react';
-import { useDebounce } from '../../../hooks/useDebounce';
-import './InputSeach.scss';
+import React, {
+  ChangeEvent,
+  memo,
+  useEffect,
+  useState
+} from 'react';
+import { useDebounce } from 'hooks/useDebounce';
+import './InputSearch.scss';
 
 interface InputSearchProps {
   onInput: (value: string) => void;

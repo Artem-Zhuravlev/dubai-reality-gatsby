@@ -1,5 +1,9 @@
 import React, { memo } from 'react';
-import { IGatsbyImageData, GatsbyImage, getImage } from 'gatsby-plugin-image';
+import {
+  IGatsbyImageData,
+  GatsbyImage,
+  getImage
+} from 'gatsby-plugin-image';
 import './ImageTextCol.scss';
 
 interface ImageTextColProps {

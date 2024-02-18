@@ -1,6 +1,5 @@
-import React, { memo, useId, useState } from 'react';
+import React, { memo, useId } from 'react';
 import { BlogCard, BlogCardProps } from 'components/cards';
-// import './ArticlesSection.scss';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { Pagination } from 'components/Pagination/Pagination';
 
@@ -21,7 +20,6 @@ export const CategoriesSection = memo((props: CategoriesSectionProps) => {
     items
   } = props;
   const id = useId();
-  const [pageCount, setPageCount] = useState(0);
 
   return (
     <section className="articles-section container-fluid section">

@@ -1,6 +1,10 @@
 import React, { memo } from 'react';
 import './ArticlesBanner.scss';
-import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import {
+  GatsbyImage,
+  getImage,
+  IGatsbyImageData
+} from 'gatsby-plugin-image';
 
 interface ArticlesBannerProps {
   title: string;

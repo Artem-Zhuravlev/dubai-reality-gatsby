@@ -1,7 +1,12 @@
 import { Link } from 'gatsby';
 import React, { memo } from 'react';
 import './HiddenInfoCard.scss';
-import { StaticImage, GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import {
+  StaticImage,
+  GatsbyImage,
+  getImage,
+  IGatsbyImageData
+} from 'gatsby-plugin-image';
 import classNames from 'classnames';
 
 interface HiddenInfoCardProps {

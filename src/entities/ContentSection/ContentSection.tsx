@@ -5,7 +5,7 @@ import { ImageTextCol } from 'components/lists';
 import { graphql, useStaticQuery } from "gatsby";
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
-export const ContentSection = memo((props) => {
+export const ContentSection = memo(() => {
   const data = useStaticQuery(graphql`
     query {
       markdownRemark(frontmatter: {name: {eq: "content"}}) {

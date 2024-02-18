@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 import './FeedbackCard.scss';
 
 interface FeedbackCardProps {
-  className?: string;
   title: string;
   subtitle?: string;
   description: string;
@@ -10,7 +9,6 @@ interface FeedbackCardProps {
 
 export const FeedbackCard = memo((props: FeedbackCardProps) => {
   const {
-    className,
     title,
     subtitle,
     description

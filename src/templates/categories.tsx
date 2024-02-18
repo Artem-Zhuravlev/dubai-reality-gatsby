@@ -31,9 +31,6 @@ interface MarkdownRemarkData {
 const ContactPage: FC<PageProps<MarkdownRemarkData>> = ({ data }) => {
   const {
     title,
-    slug,
-    category,
-    categoryTitle,
     banner
   } = data.markdownRemark.frontmatter;
   const { html } = data?.markdownRemark;
