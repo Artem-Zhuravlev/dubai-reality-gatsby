@@ -4,7 +4,7 @@ slug: 'video'
 category: 'information'
 categoryTitle: 'Information'
 banner: "../images/video.jpg"
-description: 'Capture the essence of Dubai's vibrant energy and awe-inspiring landscapes with our professional video production services'
+description: 'Capture the essence of Dubai\'s vibrant energy and awe-inspiring landscapes with our professional video production services'
 ---
 
 # Video Amenities in Dubai
