@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useId } from 'react';
 import './Breadcrumbs.scss';
 import { Link } from 'gatsby';
 
@@ -13,13 +13,15 @@ export interface BreadcrumbsProps {
 
 export const Breadcrumbs = memo((props: BreadcrumbsProps) => {
   const { items } = props;
+  const id = useId();
 
   return (
     <ol className="breadcrumbs">
       {
-        items && items.map((item) => (
+        items && items.map((item, index) => (
          <li
           className='breadcrumbs__item'
+          key={`${id}_${index}`}
          >
           { item.to ? (
             <Link

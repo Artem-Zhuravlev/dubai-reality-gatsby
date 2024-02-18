@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useId } from 'react';
 import classNames from 'classnames';
 import './SocialList.scss';
 
@@ -8,6 +8,7 @@ interface SocialListProps {
 
 export const SocialList = memo((props: SocialListProps) => {
   const { direction = 'row' } = props;
+  const id = useId();
 
   const socialListClass = classNames(
     'social-list',
@@ -27,9 +28,10 @@ export const SocialList = memo((props: SocialListProps) => {
       className={socialListClass}
     >
       {
-        socialListData.map(({ icon, to }) => (
+        socialListData.map(({ icon, to }, index) => (
           <li
             className="social-list__item"
+            key={`${id}_${index}`}
           >
             <a
               href={to}

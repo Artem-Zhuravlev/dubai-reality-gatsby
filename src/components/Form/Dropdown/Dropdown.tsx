@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useId } from 'react';
 import './Dropdown.scss';
 import { Link } from 'gatsby';
 
@@ -14,6 +14,7 @@ interface DropdownProps {
 
 export const Dropdown = memo((props: DropdownProps) => {
   const { title, options } = props;
+  const id = useId();
 
   return (
     <details className='dropdown'>
@@ -21,16 +22,19 @@ export const Dropdown = memo((props: DropdownProps) => {
         {title}
       </summary>
       <ul className="dropdown__list">
-      {options && options.map(({ to, value }) => (
-        <li className='dropdown__item'>
-          <Link
-            to={to}
-            className='dropdown__link'
+        {options && options.map(({ to, value }, index) => (
+          <li
+            className='dropdown__item'
+            key={`${id}_${index}`}
           >
-            {value}
-          </Link>
-        </li> 
-      ))}
+            <Link
+              to={to}
+              className='dropdown__link'
+            >
+              {value}
+            </Link>
+          </li>
+        ))}
       </ul>
     </details>
   );

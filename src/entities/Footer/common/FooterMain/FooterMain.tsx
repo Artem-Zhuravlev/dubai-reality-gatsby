@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useId } from 'react';
 import './FooterMain.scss';
 import { useModal } from 'context/ModalContext';
 import { listData } from './listData';
@@ -7,12 +7,16 @@ import { Button } from 'components/form';
 
 export const FooterMain = memo(() => {
   const { openModal } = useModal();
+  const id = useId();
 
   return (
     <div className='footer-main container-fluid'>
       {
-        listData.map(({ title, list }) => (
-          <div className="footer-main__col">
+        listData.map(({ title, list }, index) => (
+          <div
+            className="footer-main__col"
+            key={`${id}_${index}`}
+          >
             <List
               title={title}
               items={list}
@@ -27,7 +31,7 @@ export const FooterMain = memo(() => {
           <ul className="list">
             <li className="list__item">
               <address>
-              964 Worthington Drive Dubai, UAE
+                964 Worthington Drive Dubai, UAE
               </address>
             </li>
 

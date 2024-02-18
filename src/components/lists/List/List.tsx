@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useId } from 'react';
 import { Link } from 'gatsby';
 
 export interface ListItem {
@@ -12,6 +12,8 @@ interface ListProps {
 }
 
 export const List = memo(({ title, items }: ListProps) => {
+  const id = useId();
+
   return (
     <div className="list-group">
       {
@@ -21,8 +23,11 @@ export const List = memo(({ title, items }: ListProps) => {
       }
       <ul className='list'>
         {
-          items.map(({ to, value }) => (
-            <li className="list__item">
+          items.map(({ to, value }, index) => (
+            <li
+              className="list__item"
+              key={`${id}_${index}`}
+            >
               <Link
                 to={to}
                 className='list__link'

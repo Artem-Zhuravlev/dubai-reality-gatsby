@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useId } from 'react';
 import './ContentSection.scss';
 import { Blockquote } from 'components/Blockquote/Blockquote';
 import { ImageTextCol } from 'components/lists';
@@ -34,10 +34,9 @@ export const ContentSection = memo((props) => {
     author,
     blockquote,
     items
-  } = data.markdownRemark.frontmatter
+  } = data.markdownRemark.frontmatter;
 
-
-  console.log(data, 'content')
+  const id = useId();
 
   return (
     <section className='content-section section'>
@@ -49,8 +48,9 @@ export const ContentSection = memo((props) => {
         />
         <div className="content-section__row">
           {
-            items && items.map((item: { text: string; image: IGatsbyImageData; }) => (
+            items && items.map((item: { text: string; image: IGatsbyImageData; }, index: number) => (
               <ImageTextCol
+                key={`${id}_${index}`}
                 text={item.text}
                 imageUrl={item.image}
               />

@@ -1,5 +1,5 @@
 import React, { memo, useId } from 'react';
-import cls from './Accordion.module.scss';
+import './Accordion.scss';
 import { AccordionItem, AccordionItemProps } from './AccordionItem';
 
 interface AccordionProps {

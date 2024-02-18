@@ -1,24 +1,27 @@
-import React, { memo } from 'react';
+import React, { memo, useId } from 'react';
 import classNames from 'classnames';
 import './BannerPagination.scss';
-import { IBannerSliderItems } from '../../Banner';
+import { ICard } from 'interfaces/ICard';
 
 interface BannerPaginationProps {
-  items: IBannerSliderItems[];
+  items: ICard[];
   slideIndex: number;
 }
 
 export const BannerPagination = memo((props: BannerPaginationProps) => {
   const { items, slideIndex } = props;
+  const id = useId();
 
   return (
     <ul className="banner-pagination">
       { items && items.map((item, index) => (
-        <li className={
-          classNames(
-            'banner-pagination__item',
-            { 'banner-pagination__item--active' : slideIndex === index }
-          )
+        <li
+          key={`${id}_${index}`}
+          className={
+            classNames(
+              'banner-pagination__item',
+              { 'banner-pagination__item--active' : slideIndex === index }
+            )
         }>
           {item.frontmatter.title}
         </li>
