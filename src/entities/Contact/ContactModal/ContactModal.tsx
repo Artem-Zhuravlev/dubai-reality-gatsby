@@ -3,7 +3,7 @@ import { ModalWindow } from 'components/ModalWindow/ModalWindow';
 import { useModal } from 'context/ModalContext';
 import './ContactModal.scss';
 import { Form } from 'react-final-form';
-import { Button, Input } from 'components/form';
+import { Button, Input } from '../../../components/form';
 
 export const ContactModal = memo(() => {
   const { isOpen, closeModal } = useModal();

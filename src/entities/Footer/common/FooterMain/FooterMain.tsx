@@ -3,7 +3,7 @@ import './FooterMain.scss';
 import { useModal } from 'context/ModalContext';
 import { listData } from './listData';
 import { List } from 'components/lists';
-import { Button } from 'components/form';
+import { Button } from '../../../../components/form';
 
 export const FooterMain = memo(() => {
   const { openModal } = useModal();
