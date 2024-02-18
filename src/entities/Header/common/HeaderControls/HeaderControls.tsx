@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { Button } from '../../../../components/form';
+import { Button } from 'components/form/Button/Button';
 import './HeaderControls.scss';
 import classNames from 'classnames';
 import { useModal } from 'context/ModalContext';
